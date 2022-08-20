@@ -1,0 +1,97 @@
+.reviews {
+  overflow: hidden;
+  padding: $space-64 $space-16;
+
+  &__carousel {
+    max-width: 600px;
+    margin: $space-48 auto;
+  }
+
+  &__slider {
+    display: grid;
+    grid-template-columns: repeat(8, 100%);
+    gap: $space-64;
+    @include transition(transform);
+  }
+
+  &__slider-btns {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.review {
+  display: grid;
+  grid-template-areas:
+    "info"
+    "para"
+    "icons";
+  row-gap: $space-24;
+  align-items: center;
+  padding: $space-32;
+  border-radius: $border-radius-5;
+  box-shadow: $box-shadow-md;
+  background-color: $color-light;
+
+  &__info {
+    grid-area: info;
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  &__social-icons {
+    grid-area: icons;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-8;
+  }
+
+  &__title-wrapper {
+    margin-left: $space-8;
+  }
+
+  &__title {
+    font-size: $font-size-20;
+    font-weight: $font-weight-500;
+  }
+
+  &__sub-title {
+    color: $color-dark-light;
+    font-weight: $font-weight-500;
+  }
+
+  &__para {
+    grid-area: para;
+  }
+}
+
+.no-transition-js {
+  transition: none;
+}
+
+@include media-sm {
+  .review {
+    padding: $space-64;
+
+    &__title {
+      font-size: $font-size-24;
+    }
+  }
+}
+
+@include media-sm-35 {
+  .review {
+    grid-template-areas:
+      "info icons"
+      "para para";
+    &__social-icons {
+      justify-self: end;
+    }
+  }
+}

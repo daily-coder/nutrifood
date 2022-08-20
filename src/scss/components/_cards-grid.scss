@@ -1,0 +1,19 @@
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-24;
+  grid-auto-rows: 1fr;
+  margin-top: $space-48;
+}
+
+@include media-sm {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include media-md {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,55 @@
+.store-main {
+  margin: $space-64 0;
+}
+
+.store {
+  padding: 0;
+
+  &__grid {
+    margin: $space-64 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-24;
+  }
+
+  &__item {
+    width: 100%;
+    box-shadow: $box-shadow-store-item;
+    background-color: $color-light;
+    border-radius: $border-radius-5;
+  }
+
+  &__img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+
+  &__title {
+    margin: $space-16 0;
+  }
+
+  &__img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+
+    // compared to fruits & vegs images of nuts are way too big
+    &--nuts {
+      width: 170px;
+      height: 170px;
+    }
+  }
+
+  &__content {
+    text-align: center;
+  }
+}
+
+.divider {
+  margin: $space-32 0;
+  border: $border-4 solid $color-primary;
+  width: $space-64;
+  margin: 0 auto;
+}

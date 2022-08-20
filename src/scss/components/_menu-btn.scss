@@ -1,0 +1,67 @@
+/**
+ * NOTE: 
+ * used padding to increase hover area for the user.
+ * top and bottom burger-lines are positioned absolutely so they don't contribute to menu-btn width and height.
+ * padding-top&bottom = 16px + 4px(margin) + 4px(height)
+ * padding-left&bottom is 16px because width of burger-lines are same.
+ */
+
+.menu-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: $menu-btn-index;
+  padding: $space-24 $space-16;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &__burger {
+    position: relative;
+    width: 24px;
+    height: 4px;
+    background-color: $color-dark;
+    @include transition(background-color);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      display: block;
+      width: 24px;
+      height: 4px;
+      background-color: $color-dark;
+      @include transition(transform);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      display: block;
+      width: 24px;
+      height: 4px;
+      background-color: $color-dark;
+      @include transition(transform);
+    }
+
+    // opening and closing menu-btn
+    &.open-js {
+      background-color: transparent;
+
+      &::before {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@include media-md {
+  .menu-btn {
+    display: none;
+  }
+}

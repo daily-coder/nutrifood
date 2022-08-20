@@ -1,0 +1,21 @@
+@mixin transition($property) {
+  transition: $property 0.25s ease-in-out;
+}
+
+@mixin media-sm {
+  @media screen and (min-width: 31.25rem) {
+    @content;
+  }
+}
+
+@mixin media-sm-35 {
+  @media screen and (min-width: 35rem) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media screen and (min-width: 56.5rem) {
+    @content;
+  }
+}
