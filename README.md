@@ -66,3 +66,24 @@ Follow the following steps to get development environment running.
    ```bash
    npm install
    ```
+
+<br />
+
+### Scripts
+
+* Development server
+
+  ```bash
+  npm start
+  ```
+
+* build
+
+  ```bash
+  npm run build
+  ```
+* Deployment
+
+  ```bash
+  npm run deploy
+  ```
