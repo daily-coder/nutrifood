@@ -6,7 +6,7 @@ Have a look at the [demo](https://daily-coder.github.io/NutriFood/) to see what 
 
 <br/>
 
-## Summary
+## Key Features
 
 * Hero section features a food image with a call-to-action button.
 * How it works section features four cards that explain how the company works.
