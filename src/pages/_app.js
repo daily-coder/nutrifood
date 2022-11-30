@@ -1,3 +1,4 @@
+import GlobalStyles from "../components/GlobalStyles";
 import StyleVariables from "../components/StyleVariables";
 
 function MyApp({ Component, pageProps }) {
@@ -5,6 +6,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Component {...pageProps} />
       <StyleVariables />
+      <GlobalStyles />
     </>
   );
 }
