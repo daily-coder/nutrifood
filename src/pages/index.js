@@ -1,3 +1,10 @@
+import Meta from "../components/Meta";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Meta />
+      Home
+    </div>
+  );
 }
