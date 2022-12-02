@@ -23,15 +23,64 @@ const FlexWrapper = styled.div`
   justify-content: space-between;
 `;
 
+const SliderWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-20);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: calc(300rem / 16);
+  min-height: 100vh;
+  padding-top: var(--space-48);
+  background-color: var(--color-light);
+  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
+
+  /* Menu slider is opened slowly compared to closing. */
+
+  transition-property: transform;
+  transition-duration: ${({ isOpen }) =>
+    isOpen ? "var(--transition-duration)" : "0.125s"};
+  transition-timing-function: ${({ isOpen }) =>
+    isOpen ? "ease-out" : "ease-in"};
+
+  @media (min-width: ${BREAK_POINTS.md}) {
+    position: static;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0;
+    width: 100%;
+    min-height: 0;
+    transform: initial;
+    background-color: inherit;
+  }
+`;
+
+const LogoLink = styled(Link)`
+  flex-shrink: 0;
+`;
+
 const LogoIcon = styled(NutriFoodIcon)`
   color: var(--color-primary);
   width: calc(140rem / 16);
+  padding: var(--space-8) 0;
+
+  @media (min-width: ${BREAK_POINTS.md}) {
+    padding: 0;
+  }
 `;
 
 const SignUpButton = styled.button`
   color: var(--color-primary);
   background-color: transparent;
   border: none;
+  padding: var(--space-16);
+
+  @media (min-width: ${BREAK_POINTS.md}) {
+    padding: 0;
+  }
 `;
 
 const SignUpIcon = styled(PersonCircleIcon)`
@@ -61,15 +110,17 @@ function Header() {
     <HeaderWrapper>
       <MaxWidthWrapper>
         <FlexWrapper>
-          <Link href="/">
+          <LogoLink href="/">
             <LogoIcon aria-hidden="true" />
-          </Link>
+          </LogoLink>
 
-          <Navbar />
+          <SliderWrapper isOpen={isOpen}>
+            <Navbar />
 
-          <SignUpButton type="button" aria-label="Sign up button">
-            <SignUpIcon aria-hidden="true" />
-          </SignUpButton>
+            <SignUpButton type="button" aria-label="Sign up button">
+              <SignUpIcon aria-hidden="true" />
+            </SignUpButton>
+          </SliderWrapper>
         </FlexWrapper>
 
         <MenuButton
