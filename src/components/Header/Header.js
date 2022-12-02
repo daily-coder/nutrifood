@@ -77,9 +77,18 @@ const SignUpButton = styled.button`
   background-color: transparent;
   border: none;
   padding: var(--space-16);
+  display: flex;
 
   @media (min-width: ${BREAK_POINTS.md}) {
     padding: 0;
+  }
+`;
+
+const SignUpLabel = styled.span`
+  margin-left: var(--space-16);
+
+  @media (min-width: ${BREAK_POINTS.md}) {
+    display: none;
   }
 `;
 
@@ -119,6 +128,7 @@ function Header() {
 
             <SignUpButton type="button" aria-label="Sign up button">
               <SignUpIcon aria-hidden="true" />
+              <SignUpLabel>SIGN-IN</SignUpLabel>
             </SignUpButton>
           </SliderWrapper>
         </FlexWrapper>
