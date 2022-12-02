@@ -352,6 +352,12 @@ const GlobalStyles = createGlobalStyle`
     font-size: var(--font-size-32);
     text-align: center;
   }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;

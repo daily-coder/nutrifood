@@ -57,6 +57,9 @@ const StyleVariables = createGlobalStyle`
     --z-index-30: 30;
     --z-index-40: 40;
     --z-index-50: 50;
+
+    // transitions
+    --transition-duration: 0.25s;
   }
 `;
 

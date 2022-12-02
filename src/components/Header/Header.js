@@ -1,9 +1,12 @@
+import { BREAK_POINTS } from "../../constants";
+import HamburgerIcon from "../HamburgerIcon";
 import Link from "next/link";
 import MaxWidthWrapper from "../MaxWidthWrapper/";
 import Navbar from "../Navbar";
 import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
 import PersonCircleIcon from "../../../public/svg/person-circle.svg";
 import styled from "styled-components";
+import { useState } from "react";
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -35,7 +38,25 @@ const SignUpIcon = styled(PersonCircleIcon)`
   width: calc(24rem / 16);
 `;
 
+const MenuButton = styled.button`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-30);
+  padding: var(--space-24) var(--space-16);
+
+  @media (min-width: ${BREAK_POINTS.md}) {
+    display: none;
+  }
+`;
+
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleClick() {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  }
+
   return (
     <HeaderWrapper>
       <MaxWidthWrapper>
@@ -50,6 +71,14 @@ function Header() {
             <SignUpIcon aria-hidden="true" />
           </SignUpButton>
         </FlexWrapper>
+
+        <MenuButton
+          type="button"
+          aria-label="Menu button"
+          onClick={handleClick}
+        >
+          <HamburgerIcon isOpen={isOpen} />
+        </MenuButton>
       </MaxWidthWrapper>
     </HeaderWrapper>
   );
