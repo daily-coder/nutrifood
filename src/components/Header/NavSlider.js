@@ -62,12 +62,12 @@ const SignUpIcon = styled(PersonCircleIcon)`
   width: calc(24rem / 16);
 `;
 
-function NavSlider({ isOpen }) {
+function NavSlider({ isOpen, onClick }) {
   return (
     <Wrapper isOpen={isOpen}>
       <Navbar />
 
-      <SignUpButton type="button" aria-label="Sign up button">
+      <SignUpButton type="button" aria-label="Sign up button" onClick={onClick}>
         <SignUpIcon aria-hidden="true" />
         <SignUpLabel>SIGN-IN</SignUpLabel>
       </SignUpButton>

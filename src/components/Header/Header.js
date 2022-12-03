@@ -5,6 +5,7 @@ import MaxWidthWrapper from "../MaxWidthWrapper/";
 import NavSlider from "./NavSlider";
 import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
 import Overlay from "./Overlay";
+import SignUpForm from "../SignUpForm";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -37,6 +38,18 @@ const LogoIcon = styled(NutriFoodIcon)`
   }
 `;
 
+const SignUpFormWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-50);
+  display: ${({ isFormOpen }) => (isFormOpen ? "flex" : "none")};
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;
+
 const MenuButton = styled.button`
   position: fixed;
   top: 0;
@@ -51,9 +64,18 @@ const MenuButton = styled.button`
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-  function handleClick() {
+  function toggleMenu() {
     setIsOpen((prevIsOpen) => !prevIsOpen);
+  }
+
+  function openSignUpForm() {
+    setIsFormOpen(true);
+  }
+
+  function closeSignUpForm() {
+    setIsFormOpen(false);
   }
 
   return (
@@ -64,16 +86,16 @@ function Header() {
             <LogoIcon aria-hidden="true" />
           </LogoLink>
 
-          <NavSlider isOpen={isOpen} />
+          <NavSlider isOpen={isOpen} onClick={() => openSignUpForm()} />
         </FlexWrapper>
 
-        <MenuButton
-          type="button"
-          aria-label="Menu button"
-          onClick={handleClick}
-        >
+        <MenuButton type="button" aria-label="Menu button" onClick={toggleMenu}>
           <HamburgerIcon isOpen={isOpen} />
         </MenuButton>
+
+        <SignUpFormWrapper isFormOpen={isFormOpen}>
+          {isFormOpen && <SignUpForm onClick={() => closeSignUpForm()} />}
+        </SignUpFormWrapper>
 
         <Overlay isOpen={isOpen} />
       </MaxWidthWrapper>
