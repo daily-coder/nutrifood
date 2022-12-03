@@ -8,7 +8,7 @@ import Overlay from "./Overlay";
 import styled from "styled-components";
 import { useState } from "react";
 
-const HeaderWrapper = styled.header`
+const Wrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +57,7 @@ function Header() {
   }
 
   return (
-    <HeaderWrapper>
+    <Wrapper>
       <MaxWidthWrapper>
         <FlexWrapper>
           <LogoLink href="/">
@@ -77,7 +77,7 @@ function Header() {
 
         <Overlay isOpen={isOpen} />
       </MaxWidthWrapper>
-    </HeaderWrapper>
+    </Wrapper>
   );
 }
 

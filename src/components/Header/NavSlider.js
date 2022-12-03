@@ -3,7 +3,7 @@ import Navbar from "../Navbar";
 import PersonCircleIcon from "../../../public/svg/person-circle.svg";
 import styled from "styled-components";
 
-const SliderWrapper = styled.div`
+const Wrapper = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -64,14 +64,14 @@ const SignUpIcon = styled(PersonCircleIcon)`
 
 function NavSlider({ isOpen }) {
   return (
-    <SliderWrapper isOpen={isOpen}>
+    <Wrapper isOpen={isOpen}>
       <Navbar />
 
       <SignUpButton type="button" aria-label="Sign up button">
         <SignUpIcon aria-hidden="true" />
         <SignUpLabel>SIGN-IN</SignUpLabel>
       </SignUpButton>
-    </SliderWrapper>
+    </Wrapper>
   );
 }
 
