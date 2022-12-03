@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const IconWrapper = styled.div`
+const HamburgerIcon = styled.div`
   position: relative;
   width: 24px;
   height: 4px;
-  background-color: ${({ isOpen }) =>
-    isOpen ? "transparent" : "currentColor"};
+  background-color: ${({ isMenuOpen }) =>
+    isMenuOpen ? "transparent" : "currentColor"};
   will-change: transform;
   transition-property: transform, background-color;
   transition-duration: var(--transition-duration);
@@ -20,7 +20,8 @@ const IconWrapper = styled.div`
     height: 4px;
     background-color: currentColor;
     will-change: transform;
-    transform: ${({ isOpen }) => isOpen && "translateY(8px) rotate(45deg)"};
+    transform: ${({ isMenuOpen }) =>
+      isMenuOpen && "translateY(8px) rotate(45deg)"};
     transition: transform var(--transition-duration) ease-out;
   }
 
@@ -33,13 +34,10 @@ const IconWrapper = styled.div`
     height: 4px;
     background-color: currentColor;
     will-change: transform;
-    transform: ${({ isOpen }) => isOpen && "translateY(-8px) rotate(-45deg)"};
+    transform: ${({ isMenuOpen }) =>
+      isMenuOpen && "translateY(-8px) rotate(-45deg)"};
     transition: transform var(--transition-duration) ease-out;
   }
 `;
-
-function HamburgerIcon({ isOpen }) {
-  return <IconWrapper isOpen={isOpen}></IconWrapper>;
-}
 
 export default HamburgerIcon;

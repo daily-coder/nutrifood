@@ -2,7 +2,7 @@ import { BREAK_POINTS } from "../../constants";
 import NavItem from "./NavItem";
 import styled from "styled-components";
 
-const NavWrapper = styled.nav`
+const Wrapper = styled.nav`
   margin: 0;
 
   @media (min-width: ${BREAK_POINTS.md}) {
@@ -23,14 +23,14 @@ const NavList = styled.ul`
 
 function Navbar() {
   return (
-    <NavWrapper>
+    <Wrapper>
       <NavList>
         <NavItem href="/store" label="store" />
         <NavItem href="/#how-it-works" label="how it works" />
         <NavItem href="/#products" label="products" />
         <NavItem href="/#reviews" label="reviews" />
       </NavList>
-    </NavWrapper>
+    </Wrapper>
   );
 }
 
