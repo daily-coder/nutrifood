@@ -16,15 +16,16 @@ const Wrapper = styled.div`
   min-height: 100vh;
   padding-top: var(--space-48);
   background-color: var(--color-light);
-  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
+  transform: ${({ isMenuOpen }) =>
+    isMenuOpen ? "translateX(0)" : "translateX(100%)"};
 
   /* Menu slider is opened slowly compared to closing. */
 
   transition-property: transform;
-  transition-duration: ${({ isOpen }) =>
-    isOpen ? "var(--transition-duration)" : "0.125s"};
-  transition-timing-function: ${({ isOpen }) =>
-    isOpen ? "ease-out" : "ease-in"};
+  transition-duration: ${({ isMenuOpen }) =>
+    isMenuOpen ? "var(--transition-duration)" : "0.125s"};
+  transition-timing-function: ${({ isMenuOpen }) =>
+    isMenuOpen ? "ease-out" : "ease-in"};
 
   @media (min-width: ${BREAK_POINTS.md}) {
     position: static;
@@ -62,9 +63,9 @@ const SignUpIcon = styled(PersonCircleIcon)`
   width: calc(24rem / 16);
 `;
 
-function NavSlider({ isOpen, onClick }) {
+function NavSlider({ isMenuOpen, onClick }) {
   return (
-    <Wrapper isOpen={isOpen}>
+    <Wrapper isMenuOpen={isMenuOpen}>
       <Navbar />
 
       <SignUpButton type="button" aria-label="Sign up button" onClick={onClick}>

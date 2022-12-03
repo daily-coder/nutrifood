@@ -63,11 +63,11 @@ const MenuButton = styled.button`
 `;
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   function toggleMenu() {
-    setIsOpen((prevIsOpen) => !prevIsOpen);
+    setIsMenuOpen((prevIsOpen) => !prevIsOpen);
   }
 
   function openSignUpForm() {
@@ -86,18 +86,18 @@ function Header() {
             <LogoIcon aria-hidden="true" />
           </LogoLink>
 
-          <NavSlider isOpen={isOpen} onClick={() => openSignUpForm()} />
+          <NavSlider isMenuOpen={isMenuOpen} onClick={() => openSignUpForm()} />
         </FlexWrapper>
 
         <MenuButton type="button" aria-label="Menu button" onClick={toggleMenu}>
-          <HamburgerIcon isOpen={isOpen} />
+          <HamburgerIcon isMenuOpen={isMenuOpen} />
         </MenuButton>
 
         <SignUpFormWrapper isFormOpen={isFormOpen}>
           {isFormOpen && <SignUpForm onClick={() => closeSignUpForm()} />}
         </SignUpFormWrapper>
 
-        <Overlay isOpen={isOpen} />
+        <Overlay isMenuOpen={isMenuOpen} />
       </MaxWidthWrapper>
     </Wrapper>
   );
