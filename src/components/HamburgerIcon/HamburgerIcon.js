@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const IconWrapper = styled.div`
+const HamburgerIcon = styled.div`
   position: relative;
   width: 24px;
   height: 4px;
@@ -37,9 +37,5 @@ const IconWrapper = styled.div`
     transition: transform var(--transition-duration) ease-out;
   }
 `;
-
-function HamburgerIcon({ isOpen }) {
-  return <IconWrapper isOpen={isOpen}></IconWrapper>;
-}
 
 export default HamburgerIcon;
