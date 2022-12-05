@@ -1,3 +1,4 @@
+import Button from "../Button";
 import CloseIcon from "../../../public/svg/close-btn.svg";
 import RoundBtn from "../RoundBtn";
 import styled from "styled-components";
@@ -17,11 +18,14 @@ const FormControlWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: var(--space-24) 0;
-  padding: 0;
-  border: none;
+`;
 
-  &:last-child {
-    align-items: center;
+const SignUpButtonWrapper = styled.div`
+  text-align: center;
+  margin: var(--space-24) 0;
+
+  &:active {
+    transform: scale(0.95);
   }
 `;
 
@@ -68,9 +72,11 @@ function SignUpForm({ onClick }) {
         <TextInput id="password" name="email" type="password" required />
       </FormControlWrapper>
 
-      <FormControlWrapper>
-        <button type="submit">SIGN UP</button>
-      </FormControlWrapper>
+      <SignUpButtonWrapper>
+        <Button type="submit" size="normal">
+          sign-up
+        </Button>
+      </SignUpButtonWrapper>
 
       <CloseButtonWrapper>
         <RoundBtn type="button" onClick={onClick}>
