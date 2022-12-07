@@ -291,6 +291,7 @@ const GlobalStyles = createGlobalStyle`
   svg {
     display: block;
     max-width: 100%;
+    height: auto;
   }
 
   input,
@@ -338,6 +339,10 @@ const GlobalStyles = createGlobalStyle`
 
   section {
     padding: var(--space-64) 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: initial;
   }
 
   h1, h2 {
