@@ -11,6 +11,7 @@ const StyleVariables = createGlobalStyle`
     --color-dark-light: rgba(0, 0, 0, 0.5);
     --color-silver-light: #eff1f2;
     --color-silver-dark: #d0d0d7;
+    --color-gray: #e9e9ed;
 
     // font-size
 
