@@ -7,6 +7,7 @@ import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
 import Overlay from "./Overlay";
 import SignUpForm from "../SignUpForm";
 import styled from "styled-components";
+import useScrollPosition from "../../hooks/use-scroll-position.hook";
 import { useState } from "react";
 
 const Wrapper = styled.header`
@@ -15,7 +16,10 @@ const Wrapper = styled.header`
   left: 0;
   z-index: var(--z-index-40);
   width: 100%;
-  background-color: var(--color-silver-light);
+  background-color: ${({ scrollY }) =>
+    scrollY > 0 ? "var(--color-light)" : "var(--color-silver-light)"};
+  box-shadow: ${({ scrollY }) =>
+    scrollY > 0 ? "var(--box-shadow-header)" : ""};
 `;
 
 const FlexWrapper = styled.div`
@@ -65,6 +69,7 @@ const MenuButton = styled.button`
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [, scrollY] = useScrollPosition(100);
 
   function toggleMenu() {
     setIsMenuOpen((prevIsOpen) => !prevIsOpen);
@@ -79,7 +84,7 @@ function Header() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper scrollY={scrollY}>
       <MaxWidthWrapper>
         <FlexWrapper>
           <LogoLink href="/">

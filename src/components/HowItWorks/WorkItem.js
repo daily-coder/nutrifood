@@ -41,7 +41,7 @@ function WorkItem({ WorkIcon, iconSize, title, description }) {
   return (
     <Wrapper>
       <IconWrapper>
-        <WorkIcon width={`${iconSize / 16}rem`} aria-hidden="true" />
+        <WorkIcon width={iconSize} aria-hidden="true" />
       </IconWrapper>
       <Title>{title}</Title>
       <p>{description}</p>
