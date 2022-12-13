@@ -66,7 +66,7 @@ function Products() {
           <StoreLink href="/store">
             STORE
             <RightArrowIconWrapper>
-              <RightArrowIcon width={`${18 / 16}rem`} />
+              <RightArrowIcon width="18" />
             </RightArrowIconWrapper>
           </StoreLink>
         </DescriptionWrapper>

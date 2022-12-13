@@ -63,7 +63,7 @@ function Footer() {
 
       <ToTopLinkWrapper>
         <RoundBtn href="#" aria-label="back to top">
-          <ArrowUpIcon width="1.4rem" aria-hidden="true" />
+          <ArrowUpIcon width="25" aria-hidden="true" />
         </RoundBtn>
       </ToTopLinkWrapper>
     </Wrapper>
