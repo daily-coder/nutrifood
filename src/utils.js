@@ -1,11 +1,18 @@
 export function throttle(func, delay) {
-  let last = 0;
+  let scheduled;
+  let lastRan;
   return function (...args) {
-    const now = new Date().getTime();
-    if (now - last < delay) {
-      return;
+    if (!lastRan) {
+      func(...args);
+      lastRan = Date.now();
+    } else {
+      clearTimeout(scheduled);
+      scheduled = setTimeout(function () {
+        if (Date.now() - lastRan >= delay) {
+          func(...args);
+          lastRan = Date.now();
+        }
+      }, delay - (Date.now() - lastRan));
     }
-    last = now;
-    return func(...args);
   };
 }
