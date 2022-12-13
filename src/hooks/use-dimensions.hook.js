@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { throttle } from "../utils";
 
 function useDimensions(ref) {
   const [dimensions, setDimensions] = useState({
@@ -14,12 +15,12 @@ function useDimensions(ref) {
   }, [ref]);
 
   useEffect(() => {
-    function handleResize() {
+    const handleResize = throttle(() => {
       setDimensions({
         width: ref.current.offsetWidth,
         height: ref.current.offsetHeight,
       });
-    }
+    }, 250);
 
     window.addEventListener("resize", handleResize);
 
