@@ -16,6 +16,10 @@ const Wrapper = styled.button`
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 function Button({ href, type, size, children }) {
