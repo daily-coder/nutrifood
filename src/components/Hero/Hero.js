@@ -62,7 +62,7 @@ function Hero() {
             </p>
 
             <CallToActionWrapper>
-              <Button href="store.html" size="large">
+              <Button href="/store" size="large">
                 ORDER NOW
               </Button>
             </CallToActionWrapper>
