@@ -1,5 +1,11 @@
+import Meta from "../components/Meta";
+
 function Store() {
-  return <div>store</div>;
+  return (
+    <div>
+      <Meta title="NutriFood store" description="NutriFood online store" />
+    </div>
+  );
 }
 
 export default Store;
