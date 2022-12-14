@@ -7,6 +7,7 @@ function Meta({ title, description }) {
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="description" content={description} />
+      <link rel="icon" type="image/svg+xml" href="/svg/favicon.svg" />
       <title>{title}</title>
     </Head>
   );
