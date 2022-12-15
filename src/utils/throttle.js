@@ -1,4 +1,4 @@
-export function throttle(func, delay) {
+function throttle(func, delay) {
   let scheduled;
   let lastRan;
   return function (...args) {
@@ -16,3 +16,5 @@ export function throttle(func, delay) {
     }
   };
 }
+
+export default throttle;
