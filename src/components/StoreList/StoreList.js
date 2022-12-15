@@ -18,6 +18,7 @@ const Divider = styled.div`
   border: var(--border-4) solid var(--color-primary);
   width: var(--space-64);
   margin: 0 auto;
+  background-color: var(--color-primary);
 `;
 
 function StoreList({ storeItemsData }) {
