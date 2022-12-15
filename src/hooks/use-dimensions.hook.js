@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { throttle } from "../utils";
+import throttle from "../utils/throttle";
 
 function useDimensions(ref) {
   const [dimensions, setDimensions] = useState({
