@@ -74,6 +74,7 @@ function Hero() {
               alt="Image of plate with fruits and vegetables."
               sizes="(min-width: 56.5rem) 500px, 100vw"
               placeholder="blur"
+              priority="true"
             />
           </ImageWrapper>
         </FlexWrapper>
