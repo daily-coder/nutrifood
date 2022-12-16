@@ -6,16 +6,18 @@ import Reviews from "../components/Reviews";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Meta />
 
-      <Hero />
+      <main>
+        <Hero />
 
-      <HowItWorks />
+        <HowItWorks />
 
-      <Products />
+        <Products />
 
-      <Reviews />
-    </div>
+        <Reviews />
+      </main>
+    </>
   );
 }
