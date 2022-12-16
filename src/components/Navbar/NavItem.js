@@ -14,7 +14,9 @@ const NavLink = styled(Link)`
 function NavItem({ href, label }) {
   return (
     <li>
-      <NavLink href={href}>{label}</NavLink>
+      <NavLink href={href} scroll={false}>
+        {label}
+      </NavLink>
     </li>
   );
 }
