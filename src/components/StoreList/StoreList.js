@@ -17,7 +17,7 @@ const StoreItemsGrid = styled.div`
   gap: var(--space-24);
 `;
 
-const Divider = styled.div`
+const Divider = styled.hr`
   margin: var(--space-32) 0;
   border: var(--border-4) solid var(--color-primary);
   width: var(--space-64);
