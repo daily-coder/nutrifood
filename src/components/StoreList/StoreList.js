@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   margin: var(--space-64) 0;
 `;
 
+const StoreListSection = styled.section`
+  padding: 0;
+`;
+
 const StoreItemsGrid = styled.div`
   margin: var(--space-64) 0;
   display: grid;
@@ -36,13 +40,27 @@ function StoreList({ storeItemsData }) {
 
   return (
     <Wrapper>
-      <MaxWidthWrapper>
-        <StoreItemsGrid>{fruitItems}</StoreItemsGrid>
-        <Divider />
-        <StoreItemsGrid>{vegetableItems}</StoreItemsGrid>
-        <Divider />
-        <StoreItemsGrid>{nutItems}</StoreItemsGrid>
-      </MaxWidthWrapper>
+      <StoreListSection id="fruits">
+        <MaxWidthWrapper>
+          <StoreItemsGrid>{fruitItems}</StoreItemsGrid>
+        </MaxWidthWrapper>
+      </StoreListSection>
+
+      <Divider />
+
+      <StoreListSection id="vegetables">
+        <MaxWidthWrapper>
+          <StoreItemsGrid>{vegetableItems}</StoreItemsGrid>
+        </MaxWidthWrapper>
+      </StoreListSection>
+
+      <Divider />
+
+      <StoreListSection id="nuts">
+        <MaxWidthWrapper>
+          <StoreItemsGrid>{nutItems}</StoreItemsGrid>
+        </MaxWidthWrapper>
+      </StoreListSection>
     </Wrapper>
   );
 }
