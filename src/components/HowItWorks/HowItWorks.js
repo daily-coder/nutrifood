@@ -38,7 +38,7 @@ function HowItWorks() {
   );
 
   return (
-    <section>
+    <section id="how-it-works">
       <MaxWidthWrapper>
         <h2>HOW IT WORKS</h2>
         <Description>
