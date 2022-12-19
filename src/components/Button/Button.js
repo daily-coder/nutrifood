@@ -22,9 +22,15 @@ const Wrapper = styled.button`
   }
 `;
 
-function Button({ href, type, size, children }) {
+function Button({ href, type, size, children, className }) {
   return (
-    <Wrapper href={href} as={href ? Link : "button"} type={type} size={size}>
+    <Wrapper
+      href={href}
+      as={href ? Link : "button"}
+      type={type}
+      size={size}
+      className={className}
+    >
       {children}
     </Wrapper>
   );
