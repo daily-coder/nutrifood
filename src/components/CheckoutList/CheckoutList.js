@@ -2,7 +2,8 @@ import CheckoutItem from "./CheckoutItem";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  margin: var(--space-64) 0;
+  margin: var(--space-64) auto;
+  max-width: 750px;
 `;
 
 const CheckoutItemsWrapper = styled.div`
