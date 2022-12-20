@@ -29,6 +29,7 @@ const StyleVariables = createGlobalStyle`
     // spacing
 
     --space-8: 8px;
+    --space-12: 12px;
     --space-16: 16px;
     --space-24: 24px;
     --space-32: 32px;
