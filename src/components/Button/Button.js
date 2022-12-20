@@ -17,6 +17,7 @@ const Wrapper = styled.button`
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
 
   &:active {
     transform: scale(0.95);
