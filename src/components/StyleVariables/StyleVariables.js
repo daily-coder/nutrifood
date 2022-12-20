@@ -36,6 +36,7 @@ const StyleVariables = createGlobalStyle`
     --space-48: 48px;
     --space-64: 64px;
     --space-80: 80px;
+    --space-128: 128px;
 
     // border
 
