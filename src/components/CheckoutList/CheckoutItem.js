@@ -49,21 +49,21 @@ const Quantity = styled.p`
   font-size: var(--font-size-20);
 `;
 
-function CheckoutItem() {
+function CheckoutItem({ src, item, width, height, price, quantity }) {
   return (
     <Wrapper>
       <ImageWrapper>
         <Image
-          src="/images/store/apple.jpg"
-          alt=""
-          height="1201"
-          width="1056"
+          src={src}
+          alt={`Image of ${item}`}
+          height={height}
+          width={width}
         />
       </ImageWrapper>
 
       <div>
         <h3>Apple</h3>
-        <Price>$6.49</Price>
+        <Price>${price}</Price>
         <DeleteButton size="normal" type="button">
           Delete
         </DeleteButton>
@@ -74,7 +74,7 @@ function CheckoutItem() {
           <ChevronUpIcon width="24" />
         </ChevronUpIconBtn>
 
-        <Quantity>1</Quantity>
+        <Quantity>{quantity}</Quantity>
 
         <ChevronDownIconBtn type="button">
           <ChevronDownIcon width="24" />
