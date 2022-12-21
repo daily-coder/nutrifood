@@ -1,5 +1,7 @@
+import CartContext from "../CartContext";
 import CheckoutItem from "./CheckoutItem";
 import styled from "styled-components";
+import { useContext } from "react";
 
 const Wrapper = styled.div`
   margin: var(--space-64) auto;
@@ -12,8 +14,10 @@ const CheckoutItemsWrapper = styled.div`
   gap: var(--space-48);
 `;
 
-function checkoutList({ checkoutItemsData }) {
-  const checkoutItems = checkoutItemsData.map((item) => (
+function CheckoutList() {
+  const { cartItems } = useContext(CartContext);
+
+  const checkoutItems = cartItems.map((item) => (
     <CheckoutItem key={item.id} {...item} />
   ));
 
@@ -24,4 +28,4 @@ function checkoutList({ checkoutItemsData }) {
   );
 }
 
-export default checkoutList;
+export default CheckoutList;
