@@ -1,10 +1,15 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { CART_ITEMS_KEY } from "../../constants";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem(CART_ITEMS_KEY));
+    setCartItems(cartItems || []);
+  }, []);
 
   function addToCart(newCartItem) {
     setCartItems((prevCartItems) => {
