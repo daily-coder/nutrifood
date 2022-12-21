@@ -24,7 +24,7 @@ const Wrapper = styled.button`
   }
 `;
 
-function Button({ href, type, size, children, className }) {
+function Button({ href, type, size, children, className, onClick }) {
   return (
     <Wrapper
       href={href}
@@ -32,6 +32,7 @@ function Button({ href, type, size, children, className }) {
       type={type}
       size={size}
       className={className}
+      onClick={onClick}
     >
       {children}
     </Wrapper>

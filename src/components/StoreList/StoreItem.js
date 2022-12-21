@@ -1,6 +1,8 @@
 import Button from "../Button";
+import CartContext from "../CartContext/CartContext";
 import Image from "next/image";
 import styled from "styled-components";
+import { useContext } from "react";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -35,7 +37,13 @@ const ButtonWrapper = styled.div`
   margin: var(--space-16);
 `;
 
-function StoreItem({ item, price, src, width, height, imgsize }) {
+function StoreItem({ id, item, price, src, width, height, imgsize }) {
+  const { addToCart } = useContext(CartContext);
+
+  function handleClick() {
+    addToCart({ id, item, price, src, width, height });
+  }
+
   return (
     <Wrapper>
       <ImgWrapper>
@@ -53,7 +61,7 @@ function StoreItem({ item, price, src, width, height, imgsize }) {
         <Title>{item}</Title>
         <p>${price}</p>
         <ButtonWrapper>
-          <Button size="medium" type="button">
+          <Button size="medium" type="button" onClick={handleClick}>
             add to cart
           </Button>
         </ButtonWrapper>
