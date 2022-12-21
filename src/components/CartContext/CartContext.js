@@ -26,10 +26,23 @@ export function CartProvider({ children }) {
     });
   }
 
+  function deleteFromCart(id) {
+    setCartItems((prevCartItems) => {
+      const newCartItems = prevCartItems.filter(
+        (cartItem) => cartItem.id !== id
+      );
+
+      localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newCartItems));
+
+      return newCartItems;
+    });
+  }
+
   const value = {
     cartItems,
     setCartItems,
     addToCart,
+    deleteFromCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
