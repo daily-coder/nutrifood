@@ -53,8 +53,8 @@ function StoreItem({ item, price, src, width, height, imgsize }) {
         <Title>{item}</Title>
         <p>${price}</p>
         <ButtonWrapper>
-          <Button size="large" type="button">
-            BUY
+          <Button size="medium" type="button">
+            add to cart
           </Button>
         </ButtonWrapper>
       </ContentWrapper>
