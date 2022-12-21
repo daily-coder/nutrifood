@@ -70,7 +70,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
       </ImageWrapper>
 
       <div>
-        <h3>Apple</h3>
+        <h3>{item}</h3>
         <Price>${price}</Price>
         <DeleteButton size="normal" type="button" onClick={handleClick}>
           Delete
