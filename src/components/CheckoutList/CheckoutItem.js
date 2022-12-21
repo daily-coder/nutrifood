@@ -1,8 +1,10 @@
 import Button from "../Button";
+import CartContext from "../CartContext/CartContext";
 import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
 import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
 import Image from "next/image";
 import styled from "styled-components";
+import { useContext } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,7 +51,13 @@ const Quantity = styled.p`
   font-size: var(--font-size-20);
 `;
 
-function CheckoutItem({ src, item, width, height, price, quantity }) {
+function CheckoutItem({ id, src, item, width, height, price, quantity }) {
+  const { deleteFromCart } = useContext(CartContext);
+
+  function handleClick() {
+    deleteFromCart(id);
+  }
+
   return (
     <Wrapper>
       <ImageWrapper>
@@ -64,7 +72,7 @@ function CheckoutItem({ src, item, width, height, price, quantity }) {
       <div>
         <h3>Apple</h3>
         <Price>${price}</Price>
-        <DeleteButton size="normal" type="button">
+        <DeleteButton size="normal" type="button" onClick={handleClick}>
           Delete
         </DeleteButton>
       </div>
