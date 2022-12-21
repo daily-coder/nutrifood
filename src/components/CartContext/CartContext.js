@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { CART_ITEMS_KEY } from "../../constants";
 
 const CartContext = createContext();
 
@@ -10,6 +11,12 @@ export function CartProvider({ children }) {
       if (prevCartItems.some((cartItem) => cartItem.id === newCartItem.id)) {
         return prevCartItems;
       }
+
+      localStorage.setItem(
+        CART_ITEMS_KEY,
+        JSON.stringify([...prevCartItems, newCartItem])
+      );
+
       return [...prevCartItems, newCartItem];
     });
   }
