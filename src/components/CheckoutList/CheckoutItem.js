@@ -19,6 +19,10 @@ const ImageWrapper = styled.div`
   background-color: var(--color-light);
 `;
 
+const Title = styled.h3`
+  text-transform: capitalize;
+`;
+
 const Price = styled.p`
   margin-top: var(--space-8);
 `;
@@ -70,7 +74,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
       </ImageWrapper>
 
       <div>
-        <h3>{item}</h3>
+        <Title>{item}</Title>
         <Price>${price}</Price>
         <DeleteButton size="normal" type="button" onClick={handleClick}>
           Delete
