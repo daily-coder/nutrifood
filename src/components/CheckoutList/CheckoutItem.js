@@ -56,10 +56,18 @@ const Quantity = styled.p`
 `;
 
 function CheckoutItem({ id, src, item, width, height, price, quantity }) {
-  const { deleteFromCart } = useContext(CartContext);
+  const { deleteFromCart, changeQuantity } = useContext(CartContext);
 
   function handleClick() {
     deleteFromCart(id);
+  }
+
+  function incrementQuantity() {
+    changeQuantity(id, "increase");
+  }
+
+  function decrementQuantity() {
+    changeQuantity(id, "decrease");
   }
 
   return (
@@ -82,13 +90,13 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
       </div>
 
       <QuantityWrapper>
-        <ChevronUpIconBtn type="button">
+        <ChevronUpIconBtn type="button" onClick={incrementQuantity}>
           <ChevronUpIcon width="24" />
         </ChevronUpIconBtn>
 
         <Quantity>{quantity}</Quantity>
 
-        <ChevronDownIconBtn type="button">
+        <ChevronDownIconBtn type="button" onClick={decrementQuantity}>
           <ChevronDownIcon width="24" />
         </ChevronDownIconBtn>
       </QuantityWrapper>
