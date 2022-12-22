@@ -13,7 +13,7 @@ export function CartProvider({ children }) {
         return prevCartItems;
       }
 
-      return [...prevCartItems, newCartItem];
+      return [...prevCartItems, { ...newCartItem, quantity: 1 }];
     });
   }
 
@@ -27,11 +27,33 @@ export function CartProvider({ children }) {
     });
   }
 
+  function changeQuantity(id, action) {
+    setCartItems((prevCartItems) => {
+      return prevCartItems.map((cartItem) => {
+        if (cartItem.id === id) {
+          const quantity = Math.max(
+            action === "increase"
+              ? cartItem.quantity + 1
+              : cartItem.quantity - 1,
+            1
+          );
+
+          return {
+            ...cartItem,
+            quantity,
+          };
+        }
+        return cartItem;
+      });
+    });
+  }
+
   const value = {
     cartItems,
     setCartItems,
     addToCart,
     deleteFromCart,
+    changeQuantity,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
