@@ -1,26 +1,17 @@
-import { createContext, useEffect, useState } from "react";
 import { CART_ITEMS_KEY } from "../../constants";
+import { createContext } from "react";
+import usePersistedState from "../../hooks/use-persisted-state.hook";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem(CART_ITEMS_KEY));
-    setCartItems(cartItems || []);
-  }, []);
+  const [cartItems, setCartItems] = usePersistedState([], CART_ITEMS_KEY);
 
   function addToCart(newCartItem) {
     setCartItems((prevCartItems) => {
       if (prevCartItems.some((cartItem) => cartItem.id === newCartItem.id)) {
         return prevCartItems;
       }
-
-      localStorage.setItem(
-        CART_ITEMS_KEY,
-        JSON.stringify([...prevCartItems, newCartItem])
-      );
 
       return [...prevCartItems, newCartItem];
     });
@@ -31,8 +22,6 @@ export function CartProvider({ children }) {
       const newCartItems = prevCartItems.filter(
         (cartItem) => cartItem.id !== id
       );
-
-      localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newCartItems));
 
       return newCartItems;
     });
