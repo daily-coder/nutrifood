@@ -1,4 +1,6 @@
+import CartContext from "../CartContext";
 import styled from "styled-components";
+import { useContext } from "react";
 
 const Wrapper = styled.table`
   table-layout: fixed;
@@ -23,7 +25,16 @@ const Divider = styled.div`
   margin-top: var(--space-24);
 `;
 
-function SummaryTable({ subtotal, shippingCost }) {
+function SummaryTable() {
+  const { cartItems } = useContext(CartContext);
+
+  const result = cartItems.reduce(
+    (total, { quantity, price }) => total + quantity * price,
+    0
+  );
+
+  const subtotal = result.toFixed(2);
+
   return (
     <Wrapper>
       <tbody>
@@ -38,7 +49,7 @@ function SummaryTable({ subtotal, shippingCost }) {
         </tr>
         <tr>
           <RowHead>shipping cost</RowHead>
-          <TableData>{shippingCost}</TableData>
+          <TableData>0</TableData>
         </tr>
         <tr>
           <td colSpan="2">
@@ -47,7 +58,7 @@ function SummaryTable({ subtotal, shippingCost }) {
         </tr>
         <tr>
           <RowHead>total</RowHead>
-          <TableData>${subtotal + shippingCost}</TableData>
+          <TableData>${subtotal}</TableData>
         </tr>
         <tr>
           <td colSpan="2">

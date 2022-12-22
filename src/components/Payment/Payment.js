@@ -18,7 +18,7 @@ function Payment() {
     <Wrapper>
       <h3>Summary</h3>
 
-      <SummaryTable subtotal={30.99} shippingCost={0} />
+      <SummaryTable />
 
       <PaymentOptions />
     </Wrapper>
