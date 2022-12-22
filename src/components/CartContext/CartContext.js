@@ -19,11 +19,7 @@ export function CartProvider({ children }) {
 
   function deleteFromCart(id) {
     setCartItems((prevCartItems) => {
-      const newCartItems = prevCartItems.filter(
-        (cartItem) => cartItem.id !== id
-      );
-
-      return newCartItems;
+      return prevCartItems.filter((cartItem) => cartItem.id !== id);
     });
   }
 
