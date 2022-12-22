@@ -62,7 +62,7 @@ function StoreItem({ id, item, price, src, width, height, imgsize }) {
         <p>${price}</p>
         <ButtonWrapper>
           <Button size="medium" type="button" onClick={handleClick}>
-            add to cart
+            add to bag
           </Button>
         </ButtonWrapper>
       </ContentWrapper>
