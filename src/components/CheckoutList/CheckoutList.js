@@ -3,6 +3,7 @@ import CartContext from "../CartContext";
 import CheckoutItem from "./CheckoutItem";
 import styled from "styled-components";
 import { useContext } from "react";
+import useHasMounted from "../../hooks/use-has-mounted.hook";
 
 const Wrapper = styled.div`
   margin: var(--space-64) auto;
@@ -26,6 +27,12 @@ const CheckoutItemsWrapper = styled.div`
 
 function CheckoutList() {
   const { cartItems } = useContext(CartContext);
+  const hasMounted = useHasMounted();
+
+  if (!hasMounted) {
+    // load empty list to avoid layout shift;
+    return <Wrapper></Wrapper>;
+  }
 
   const checkoutItems = cartItems.map((item) => (
     <CheckoutItem key={item.id} {...item} />
