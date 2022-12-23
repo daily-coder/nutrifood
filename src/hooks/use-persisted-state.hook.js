@@ -1,10 +1,10 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 export default function usePersistedState(defaultValue, key) {
-  const [value, setValue] = React.useState(defaultValue);
-  const [update, setUpdate] = React.useState(false);
+  const [value, setValue] = useState(defaultValue);
+  const [update, setUpdate] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!window.localStorage) {
       return;
     }
@@ -16,7 +16,7 @@ export default function usePersistedState(defaultValue, key) {
     }
   }, [key]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // on initial render, value will be default value which can override
     // locally stored data. so, first step is skipped.
     if (!update) {
