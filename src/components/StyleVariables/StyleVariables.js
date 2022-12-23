@@ -6,6 +6,7 @@ const StyleVariables = createGlobalStyle`
     // colors
 
     --color-primary: #0c9b58;
+    --color-secondary: #ff8d33;
     --color-danger: #f00;
     --color-light: #fff;
     --color-dark: #000;
@@ -16,6 +17,7 @@ const StyleVariables = createGlobalStyle`
 
     // font-size
 
+    --font-size-12: calc(12rem / 16);
     --font-size-20: calc(20rem / 16);
     --font-size-24: calc(24rem / 16);
     --font-size-32: calc(32rem / 16);
