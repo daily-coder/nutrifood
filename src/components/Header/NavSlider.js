@@ -6,18 +6,18 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   z-index: var(--z-index-20);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   width: calc(300rem / 16);
   min-height: 100vh;
   padding-top: var(--space-48);
   background-color: var(--color-light);
   transform: ${({ isMenuOpen }) =>
-    isMenuOpen ? "translateX(0)" : "translateX(100%)"};
+    isMenuOpen ? "translateX(0)" : "translateX(-100%)"};
 
   /* Menu slider is opened slowly compared to closing. */
 
