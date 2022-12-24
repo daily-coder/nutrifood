@@ -18,7 +18,7 @@ function Reviews() {
   ));
 
   return (
-    <Wrapper>
+    <Wrapper id="reviews">
       <h2>REVIEWS</h2>
       <Description>
         Don&lsquo;t just take our word for it. Trust our customers.

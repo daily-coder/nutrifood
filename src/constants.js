@@ -3,3 +3,5 @@ export const BREAK_POINTS = {
   "sm-35": "35rem",
   md: "56.5rem",
 };
+
+export const CART_ITEMS_KEY = "cartItems";

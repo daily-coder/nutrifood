@@ -12,7 +12,7 @@ const Wrapper = styled.nav`
 
 const NavList = styled.ul`
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
 
   @media (min-width: ${BREAK_POINTS.md}) {
