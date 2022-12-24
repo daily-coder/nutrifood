@@ -1,7 +1,7 @@
 import { BREAK_POINTS } from "../constants";
 import CheckoutList from "../components/CheckoutList";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
-import Payment from "../components/payment";
+import Payment from "../components/Payment";
 import styled from "styled-components";
 
 const FlexWrapper = styled.div`
