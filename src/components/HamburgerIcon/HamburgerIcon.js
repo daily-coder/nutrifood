@@ -1,43 +1,35 @@
 import styled from "styled-components";
 
-const HamburgerIcon = styled.div`
-  position: relative;
+const Line1 = styled.div`
   width: 24px;
   height: 4px;
-  background-color: ${({ isMenuOpen }) =>
-    isMenuOpen ? "transparent" : "currentColor"};
+  border-radius: 4px;
+  background-color: currentColor;
   will-change: transform;
-  transition-property: transform, background-color;
-  transition-duration: var(--transition-duration);
-  transition-timing-function: ease-out;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    display: block;
-    width: 24px;
-    height: 4px;
-    background-color: currentColor;
-    will-change: transform;
-    transform: ${({ isMenuOpen }) =>
-      isMenuOpen && "translateY(8px) rotate(45deg)"};
-    transition: transform var(--transition-duration) ease-out;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 8px;
-    display: block;
-    width: 24px;
-    height: 4px;
-    background-color: currentColor;
-    will-change: transform;
-    transform: ${({ isMenuOpen }) =>
-      isMenuOpen && "translateY(-8px) rotate(-45deg)"};
-    transition: transform var(--transition-duration) ease-out;
-  }
+  transform: ${({ isMenuOpen }) =>
+    isMenuOpen && "translateY(4px) rotate(45deg)"};
+  transition: transform var(--transition-duration) ease-out;
 `;
+
+const Line2 = styled.div`
+  width: 24px;
+  height: 4px;
+  border-radius: 4px;
+  margin-top: var(--space-8);
+  background-color: currentColor;
+  will-change: transform;
+  transform: ${({ isMenuOpen }) =>
+    isMenuOpen && "translateY(-8px) rotate(-45deg)"};
+  transition: transform var(--transition-duration) ease-out;
+`;
+
+function HamburgerIcon({ isMenuOpen }) {
+  return (
+    <div>
+      <Line1 isMenuOpen={isMenuOpen}></Line1>
+      <Line2 isMenuOpen={isMenuOpen}></Line2>
+    </div>
+  );
+}
 
 export default HamburgerIcon;
