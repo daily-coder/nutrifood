@@ -32,7 +32,6 @@ const Wrapper = styled.div`
     flex-direction: row;
     align-items: baseline;
     padding: 0;
-    width: 100%;
     min-height: 0;
     transform: initial;
     background-color: inherit;
