@@ -6,6 +6,8 @@ const StyleVariables = createGlobalStyle`
     // colors
 
     --color-primary: #0c9b58;
+    --color-secondary: #ff8d33;
+    --color-danger: #f00;
     --color-light: #fff;
     --color-dark: #000;
     --color-dark-light: rgba(0, 0, 0, 0.5);
@@ -15,6 +17,7 @@ const StyleVariables = createGlobalStyle`
 
     // font-size
 
+    --font-size-12: calc(12rem / 16);
     --font-size-20: calc(20rem / 16);
     --font-size-24: calc(24rem / 16);
     --font-size-32: calc(32rem / 16);
@@ -28,12 +31,14 @@ const StyleVariables = createGlobalStyle`
     // spacing
 
     --space-8: 8px;
+    --space-12: 12px;
     --space-16: 16px;
     --space-24: 24px;
     --space-32: 32px;
     --space-48: 48px;
     --space-64: 64px;
     --space-80: 80px;
+    --space-128: 128px;
 
     // border
 

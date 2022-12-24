@@ -1,4 +1,5 @@
 import { BREAK_POINTS } from "../../constants";
+import BagIconLink from "./BagIconLink";
 import HamburgerIcon from "../HamburgerIcon";
 import Link from "next/link";
 import MaxWidthWrapper from "../MaxWidthWrapper/";
@@ -35,7 +36,6 @@ const LogoLink = styled(Link)`
 const LogoIcon = styled(NutriFoodIcon)`
   color: var(--color-primary);
   width: calc(140rem / 16);
-  padding: var(--space-8) 0;
 
   @media (min-width: ${BREAK_POINTS.md}) {
     padding: 0;
@@ -54,12 +54,17 @@ const SignUpFormWrapper = styled.div`
   height: 100vh;
 `;
 
+const BagIconLinkWrapper = styled.div`
+  @media (min-width: ${BREAK_POINTS.md}) {
+    margin-left: var(--space-16);
+  }
+`;
+
 const MenuButton = styled.button`
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: relative;
   z-index: var(--z-index-30);
-  padding: var(--space-24) var(--space-16);
+  padding: var(--space-16);
+  margin: 0 calc(var(--space-16) * -1);
 
   @media (min-width: ${BREAK_POINTS.md}) {
     display: none;
@@ -87,16 +92,24 @@ function Header() {
     <Wrapper scrollY={scrollY}>
       <MaxWidthWrapper>
         <FlexWrapper>
+          <MenuButton
+            type="button"
+            aria-label="Menu button"
+            onClick={toggleMenu}
+          >
+            <HamburgerIcon isMenuOpen={isMenuOpen} />
+          </MenuButton>
+
           <LogoLink href="/">
             <LogoIcon aria-hidden="true" />
           </LogoLink>
 
           <NavSlider isMenuOpen={isMenuOpen} onClick={() => openSignUpForm()} />
-        </FlexWrapper>
 
-        <MenuButton type="button" aria-label="Menu button" onClick={toggleMenu}>
-          <HamburgerIcon isMenuOpen={isMenuOpen} />
-        </MenuButton>
+          <BagIconLinkWrapper>
+            <BagIconLink />
+          </BagIconLinkWrapper>
+        </FlexWrapper>
 
         <SignUpFormWrapper isFormOpen={isFormOpen}>
           {isFormOpen && <SignUpForm onClick={() => closeSignUpForm()} />}

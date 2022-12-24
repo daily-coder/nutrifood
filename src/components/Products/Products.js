@@ -57,7 +57,7 @@ function Products() {
   ));
 
   return (
-    <section>
+    <section id="products">
       <MaxWidthWrapper>
         <h2>PRODUCTS</h2>
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const SIZES = {
   normal: "var(--space-8) var(--space-16)",
+  medium: "var(--space-12) var(--space-32)",
   large: "var(--space-16) var(--space-48)",
 };
 
@@ -16,15 +17,23 @@ const Wrapper = styled.button`
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
 
   &:active {
     transform: scale(0.95);
   }
 `;
 
-function Button({ href, type, size, children }) {
+function Button({ href, type, size, children, className, onClick }) {
   return (
-    <Wrapper href={href} as={href ? Link : "button"} type={type} size={size}>
+    <Wrapper
+      href={href}
+      as={href ? Link : "button"}
+      type={type}
+      size={size}
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </Wrapper>
   );
