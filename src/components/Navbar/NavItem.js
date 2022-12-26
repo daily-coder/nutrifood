@@ -21,7 +21,7 @@ const NavLink = styled(Link)`
     width: calc(
       100% - var(--space-16) * 2
     ); // 100% - (padding-left + padding-right)
-    height: 1px;
+    height: 2px;
     transform-origin: left;
     transform: scaleX(0);
     will-change: transform;
