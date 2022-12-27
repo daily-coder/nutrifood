@@ -123,7 +123,7 @@ function Header() {
           {isFormOpen && <SignUpForm onClick={() => closeSignUpForm()} />}
         </SignUpFormWrapper>
 
-        <Overlay isMenuOpen={isMenuOpen} />
+        <Overlay isMenuOpen={isMenuOpen} onClick={closeMenu} />
       </MaxWidthWrapper>
     </Wrapper>
   );
