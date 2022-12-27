@@ -34,10 +34,10 @@ const NavLink = styled(Link)`
   }
 `;
 
-function NavItem({ href, label }) {
+function NavItem({ href, label, onClick }) {
   return (
     <li>
-      <NavLink href={href} scroll={false}>
+      <NavLink href={href} scroll={false} onClick={onClick}>
         {label}
       </NavLink>
     </li>

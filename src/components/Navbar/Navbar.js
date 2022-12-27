@@ -22,9 +22,9 @@ const NavList = styled.ul`
   }
 `;
 
-function Navbar() {
+function Navbar({ closeMenu }) {
   const navItems = NAV_LINKS.map((navLink) => (
-    <NavItem key={navLink.label} {...navLink} />
+    <NavItem key={navLink.label} {...navLink} onClick={closeMenu} />
   ));
 
   return (
