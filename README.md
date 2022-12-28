@@ -13,6 +13,7 @@ Have a look at the [demo](https://daily-coder.github.io/NutriFood/) to see what 
 * Products section features a zoom-in effect on category images.
 * Reviews section features an ability to slide in a review card.
 * Separate Store page with simple product cards.
+* Checkout page to display items added to bag.
 * Improve page performance by optimizing images using srcset.
 * Sign-in form
 
