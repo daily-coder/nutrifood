@@ -6,8 +6,10 @@ const StyleVariables = createGlobalStyle`
     // colors
 
     --color-primary: #0c9b58;
+    --color-primary-dark: #0b884d;
     --color-secondary: #ff8d33;
     --color-danger: #f00;
+    --color-danger-dark: #e60000;
     --color-light: #fff;
     --color-dark: #000;
     --color-dark-light: rgba(0, 0, 0, 0.5);

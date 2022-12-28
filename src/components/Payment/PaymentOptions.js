@@ -11,6 +11,10 @@ const PayPalButton = styled(Button)`
   border: 1px solid;
   color: var(--color-primary);
   background-color: var(--color-silver-light);
+
+  &:hover {
+    background-color: var(--color-gray);
+  }
 `;
 
 function PaymentOptions() {
