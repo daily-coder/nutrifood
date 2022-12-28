@@ -31,6 +31,10 @@ const DeleteButton = styled(Button)`
   background-color: var(--color-danger);
   color: var(--color-light);
   margin-top: var(--space-24);
+
+  &:hover {
+    background-color: var(--color-danger-dark);
+  }
 `;
 
 const QuantityWrapper = styled.div`

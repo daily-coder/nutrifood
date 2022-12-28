@@ -80,6 +80,10 @@ function Header() {
     setIsMenuOpen((prevIsOpen) => !prevIsOpen);
   }
 
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
   function openSignUpForm() {
     setIsFormOpen(true);
   }
@@ -104,7 +108,11 @@ function Header() {
             <LogoIcon aria-hidden="true" />
           </LogoLink>
 
-          <NavSlider isMenuOpen={isMenuOpen} onClick={() => openSignUpForm()} />
+          <NavSlider
+            isMenuOpen={isMenuOpen}
+            closeMenu={closeMenu}
+            onClick={() => openSignUpForm()}
+          />
 
           <BagIconLinkWrapper>
             <BagIconLink />
@@ -115,7 +123,7 @@ function Header() {
           {isFormOpen && <SignUpForm onClick={() => closeSignUpForm()} />}
         </SignUpFormWrapper>
 
-        <Overlay isMenuOpen={isMenuOpen} />
+        <Overlay isMenuOpen={isMenuOpen} onClick={closeMenu} />
       </MaxWidthWrapper>
     </Wrapper>
   );

@@ -19,6 +19,10 @@ const Wrapper = styled.button`
   font-weight: bold;
   text-align: center;
 
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+
   &:active {
     transform: scale(0.95);
   }

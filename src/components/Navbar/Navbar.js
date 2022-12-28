@@ -1,4 +1,5 @@
 import { BREAK_POINTS } from "../../constants";
+import NAV_LINKS from "./Navbar.constants";
 import NavItem from "./NavItem";
 import styled from "styled-components";
 
@@ -21,15 +22,14 @@ const NavList = styled.ul`
   }
 `;
 
-function Navbar() {
+function Navbar({ closeMenu }) {
+  const navItems = NAV_LINKS.map((navLink) => (
+    <NavItem key={navLink.label} {...navLink} onClick={closeMenu} />
+  ));
+
   return (
     <Wrapper>
-      <NavList>
-        <NavItem href="/store" label="store" />
-        <NavItem href="/#how-it-works" label="how it works" />
-        <NavItem href="/#products" label="products" />
-        <NavItem href="/#reviews" label="reviews" />
-      </NavList>
+      <NavList>{navItems}</NavList>
     </Wrapper>
   );
 }
