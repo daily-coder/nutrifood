@@ -62,18 +62,6 @@ const Quantity = styled.p`
 function CheckoutItem({ id, src, item, width, height, price, quantity }) {
   const { deleteFromCart, changeQuantity } = useContext(CartContext);
 
-  function handleClick() {
-    deleteFromCart(id);
-  }
-
-  function incrementQuantity() {
-    changeQuantity(id, "increase");
-  }
-
-  function decrementQuantity() {
-    changeQuantity(id, "decrease");
-  }
-
   return (
     <Wrapper>
       <ImageWrapper>
@@ -88,19 +76,29 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
       <div>
         <Title>{item}</Title>
         <Price>${price}</Price>
-        <DeleteButton size="normal" type="button" onClick={handleClick}>
+        <DeleteButton
+          size="normal"
+          type="button"
+          onClick={() => deleteFromCart(id)}
+        >
           Delete
         </DeleteButton>
       </div>
 
       <QuantityWrapper>
-        <ChevronUpIconBtn type="button" onClick={incrementQuantity}>
+        <ChevronUpIconBtn
+          type="button"
+          onClick={() => changeQuantity(id, "increase")}
+        >
           <ChevronUpIcon width="24" />
         </ChevronUpIconBtn>
 
         <Quantity>{quantity}</Quantity>
 
-        <ChevronDownIconBtn type="button" onClick={decrementQuantity}>
+        <ChevronDownIconBtn
+          type="button"
+          onClick={() => changeQuantity(id, "decrease")}
+        >
           <ChevronDownIcon width="24" />
         </ChevronDownIconBtn>
       </QuantityWrapper>
