@@ -11,49 +11,40 @@ export const ACTIONS = {
   DECREMENT_QUANTITY: "decrement-quantity",
 };
 
-function reducer(state, { type, payload }) {
+function reducer(draft, { type, payload }) {
   switch (type) {
-    case ACTIONS.ADD_ITEM:
-      if (state.some((cartItem) => cartItem.id === payload.newCartItem.id)) {
-        return state;
+    case ACTIONS.ADD_ITEM: {
+      if (draft.some((cartItem) => cartItem.id === payload.newCartItem.id)) {
+        return draft;
       }
 
-      return [...state, { ...payload.newCartItem, quantity: 1 }];
+      draft.push({ ...payload.newCartItem, quantity: 1 });
+      break;
+    }
 
-    case ACTIONS.DELETE_ITEM:
-      return state.filter((cartItem) => cartItem.id !== payload.id);
+    case ACTIONS.DELETE_ITEM: {
+      return draft.filter((cartItem) => cartItem.id !== payload.id);
+    }
 
-    case ACTIONS.INCREMENT_QUANTITY:
-      return state.map((cartItem) => {
-        if (cartItem.id === payload.id) {
-          const quantity = Math.max(cartItem.quantity + 1, 1);
+    case ACTIONS.INCREMENT_QUANTITY: {
+      const targetItem = draft.find((cartItem) => cartItem.id === payload.id);
+      targetItem.quantity = Math.max(targetItem.quantity + 1, 1);
+      break;
+    }
 
-          return {
-            ...cartItem,
-            quantity,
-          };
-        }
-        return cartItem;
-      });
+    case ACTIONS.DECREMENT_QUANTITY: {
+      const targetItem = draft.find((cartItem) => cartItem.id === payload.id);
+      targetItem.quantity = Math.max(targetItem.quantity - 1, 1);
+      break;
+    }
 
-    case ACTIONS.DECREMENT_QUANTITY:
-      return state.map((cartItem) => {
-        if (cartItem.id === payload.id) {
-          const quantity = Math.max(cartItem.quantity - 1, 1);
-
-          return {
-            ...cartItem,
-            quantity,
-          };
-        }
-        return cartItem;
-      });
-
-    case CART_ITEMS_KEY:
+    case CART_ITEMS_KEY: {
       return payload.value;
+    }
 
-    default:
-      return state;
+    default: {
+      return draft;
+    }
   }
 }
 

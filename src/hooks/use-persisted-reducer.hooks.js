@@ -1,7 +1,8 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
+import { useImmerReducer } from "use-immer";
 
 function usePersistedReducer(reducer, initialValue, key) {
-  const [store, dispatch] = useReducer(reducer, initialValue);
+  const [store, dispatch] = useImmerReducer(reducer, initialValue);
   const [update, setUpdate] = useState(false);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function usePersistedReducer(reducer, initialValue, key) {
         payload: { value: JSON.parse(serializedValue) },
       });
     }
-  }, [key]);
+  }, [key, dispatch]);
 
   useEffect(() => {
     // on initial render, value will be default value which can override
