@@ -1,4 +1,6 @@
-import { createContext, useReducer } from "react";
+import { CART_ITEMS_KEY } from "../../constants";
+import { createContext } from "react";
+import usePersistedReducer from "../../hooks/use-persisted-reducer.hooks";
 
 const CartContext = createContext();
 
@@ -47,13 +49,20 @@ function reducer(state, { type, payload }) {
         return cartItem;
       });
 
+    case CART_ITEMS_KEY:
+      return payload.value;
+
     default:
       return state;
   }
 }
 
 export function CartProvider({ children }) {
-  const [cartItems, dispatch] = useReducer(reducer, []);
+  const [cartItems, dispatch] = usePersistedReducer(
+    reducer,
+    [],
+    CART_ITEMS_KEY
+  );
 
   const value = {
     cartItems,
