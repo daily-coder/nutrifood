@@ -1,38 +1,30 @@
-import { CART_ITEMS_KEY } from "../../constants";
-import { createContext } from "react";
-import usePersistedState from "../../hooks/use-persisted-state.hook";
+import { createContext, useReducer } from "react";
 
 const CartContext = createContext();
 
-export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = usePersistedState([], CART_ITEMS_KEY);
+export const ACTIONS = {
+  ADD_ITEM: "add-item",
+  DELETE_ITEM: "delete-item",
+  INCREMENT_QUANTITY: "increment-quantity",
+  DECREMENT_QUANTITY: "decrement-quantity",
+};
 
-  function addToCart(newCartItem) {
-    setCartItems((prevCartItems) => {
-      if (prevCartItems.some((cartItem) => cartItem.id === newCartItem.id)) {
-        return prevCartItems;
+function reducer(state, { type, payload }) {
+  switch (type) {
+    case ACTIONS.ADD_ITEM:
+      if (state.some((cartItem) => cartItem.id === payload.newCartItem.id)) {
+        return state;
       }
 
-      return [...prevCartItems, { ...newCartItem, quantity: 1 }];
-    });
-  }
+      return [...state, { ...payload.newCartItem, quantity: 1 }];
 
-  function deleteFromCart(id) {
-    setCartItems((prevCartItems) => {
-      return prevCartItems.filter((cartItem) => cartItem.id !== id);
-    });
-  }
+    case ACTIONS.DELETE_ITEM:
+      return state.filter((cartItem) => cartItem.id !== payload.id);
 
-  function changeQuantity(id, action) {
-    setCartItems((prevCartItems) => {
-      return prevCartItems.map((cartItem) => {
-        if (cartItem.id === id) {
-          const quantity = Math.max(
-            action === "increase"
-              ? cartItem.quantity + 1
-              : cartItem.quantity - 1,
-            1
-          );
+    case ACTIONS.INCREMENT_QUANTITY:
+      return state.map((cartItem) => {
+        if (cartItem.id === payload.id) {
+          const quantity = Math.max(cartItem.quantity + 1, 1);
 
           return {
             ...cartItem,
@@ -41,15 +33,31 @@ export function CartProvider({ children }) {
         }
         return cartItem;
       });
-    });
+
+    case ACTIONS.DECREMENT_QUANTITY:
+      return state.map((cartItem) => {
+        if (cartItem.id === payload.id) {
+          const quantity = Math.max(cartItem.quantity - 1, 1);
+
+          return {
+            ...cartItem,
+            quantity,
+          };
+        }
+        return cartItem;
+      });
+
+    default:
+      return state;
   }
+}
+
+export function CartProvider({ children }) {
+  const [cartItems, dispatch] = useReducer(reducer, []);
 
   const value = {
     cartItems,
-    setCartItems,
-    addToCart,
-    deleteFromCart,
-    changeQuantity,
+    dispatch,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

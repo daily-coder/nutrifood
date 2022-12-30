@@ -1,5 +1,5 @@
+import CartContext, { ACTIONS } from "../CartContext";
 import Button from "../Button";
-import CartContext from "../CartContext/CartContext";
 import Image from "next/image";
 import styled from "styled-components";
 import { useContext } from "react";
@@ -38,10 +38,13 @@ const ButtonWrapper = styled.div`
 `;
 
 function StoreItem({ id, item, price, src, width, height, imgsize }) {
-  const { addToCart } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
   function handleClick() {
-    addToCart({ id, item, price, src, width, height });
+    dispatch({
+      type: ACTIONS.ADD_ITEM,
+      payload: { newCartItem: { id, item, price, src, width, height } },
+    });
   }
 
   return (

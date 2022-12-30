@@ -1,5 +1,5 @@
+import CartContext, { ACTIONS } from "../CartContext";
 import Button from "../Button";
-import CartContext from "../CartContext/CartContext";
 import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
 import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
 import Image from "next/image";
@@ -60,7 +60,7 @@ const Quantity = styled.p`
 `;
 
 function CheckoutItem({ id, src, item, width, height, price, quantity }) {
-  const { deleteFromCart, changeQuantity } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
   return (
     <Wrapper>
@@ -79,7 +79,9 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
         <DeleteButton
           size="normal"
           type="button"
-          onClick={() => deleteFromCart(id)}
+          onClick={() =>
+            dispatch({ type: ACTIONS.DELETE_ITEM, payload: { id } })
+          }
         >
           Delete
         </DeleteButton>
@@ -88,7 +90,9 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
       <QuantityWrapper>
         <ChevronUpIconBtn
           type="button"
-          onClick={() => changeQuantity(id, "increase")}
+          onClick={() =>
+            dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: { id } })
+          }
         >
           <ChevronUpIcon width="24" />
         </ChevronUpIconBtn>
@@ -97,7 +101,9 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
 
         <ChevronDownIconBtn
           type="button"
-          onClick={() => changeQuantity(id, "decrease")}
+          onClick={() =>
+            dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { id } })
+          }
         >
           <ChevronDownIcon width="24" />
         </ChevronDownIconBtn>
