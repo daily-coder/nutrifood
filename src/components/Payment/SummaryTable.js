@@ -1,4 +1,4 @@
-import CartContext from "../CartContext";
+import { CartItemsContext } from "../CartProvider";
 import styled from "styled-components";
 import { useContext } from "react";
 
@@ -26,7 +26,7 @@ const Divider = styled.div`
 `;
 
 function SummaryTable() {
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useContext(CartItemsContext);
 
   // calculation is not expensive enough to use useMemo;
   const result = cartItems.reduce(

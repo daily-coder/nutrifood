@@ -2,7 +2,14 @@ import { CART_ITEMS_KEY } from "../../constants";
 import { createContext } from "react";
 import usePersistedReducer from "../../hooks/use-persisted-reducer.hooks";
 
-const CartContext = createContext();
+/**
+ * NOTE:
+ * Separating context for the current project doesn't provide any noticeable performance benefits.
+ * The purpose is to get an idea of how it can help solve the problem of unnecessary re-rendering.
+ */
+
+export const CartItemsContext = createContext();
+export const CartDispatchContext = createContext();
 
 export const ACTIONS = {
   ADD_ITEM: "add-item",
@@ -48,19 +55,20 @@ function cartReducer(draft, { type, payload }) {
   }
 }
 
-export function CartProvider({ children }) {
+function CartProvider({ children }) {
   const [cartItems, dispatch] = usePersistedReducer(
     cartReducer,
     [],
     CART_ITEMS_KEY
   );
 
-  const value = {
-    cartItems,
-    dispatch,
-  };
-
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartItemsContext.Provider value={cartItems}>
+      <CartDispatchContext.Provider value={dispatch}>
+        {children}
+      </CartDispatchContext.Provider>
+    </CartItemsContext.Provider>
+  );
 }
 
-export default CartContext;
+export default CartProvider;

@@ -1,5 +1,5 @@
 import { BREAK_POINTS } from "../../constants";
-import CartContext from "../CartContext";
+import { CartItemsContext } from "../CartProvider";
 import CheckoutItem from "./CheckoutItem";
 import styled from "styled-components";
 import { useContext } from "react";
@@ -26,7 +26,7 @@ const CheckoutItemsWrapper = styled.div`
 `;
 
 function CheckoutList() {
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useContext(CartItemsContext);
   const hasMounted = useHasMounted();
 
   if (!hasMounted) {
