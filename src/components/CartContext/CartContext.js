@@ -11,7 +11,7 @@ export const ACTIONS = {
   DECREMENT_QUANTITY: "decrement-quantity",
 };
 
-function reducer(draft, { type, payload }) {
+function cartReducer(draft, { type, payload }) {
   switch (type) {
     case ACTIONS.ADD_ITEM: {
       if (draft.some((cartItem) => cartItem.id === payload.newCartItem.id)) {
@@ -50,7 +50,7 @@ function reducer(draft, { type, payload }) {
 
 export function CartProvider({ children }) {
   const [cartItems, dispatch] = usePersistedReducer(
-    reducer,
+    cartReducer,
     [],
     CART_ITEMS_KEY
   );
