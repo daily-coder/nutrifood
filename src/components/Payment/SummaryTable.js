@@ -28,6 +28,7 @@ const Divider = styled.div`
 function SummaryTable() {
   const { cartItems } = useContext(CartContext);
 
+  // calculation is not expensive enough to use useMemo;
   const result = cartItems.reduce(
     (total, { quantity, price }) => total + quantity * price,
     0
