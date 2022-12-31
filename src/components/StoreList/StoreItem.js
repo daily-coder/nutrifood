@@ -1,8 +1,9 @@
-import { ACTIONS, useCartDispatch } from "../CartProvider";
-import Button from "../Button";
 import Image from "next/image";
 import { memo } from "react";
 import styled from "styled-components";
+
+import Button from "../Button";
+import { ACTIONS, useCartDispatch } from "../CartProvider";
 
 const Wrapper = styled.div`
   width: 100%;

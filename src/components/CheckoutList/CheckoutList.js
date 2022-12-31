@@ -1,8 +1,10 @@
-import { BREAK_POINTS } from "../../constants";
-import CheckoutItem from "./CheckoutItem";
 import styled from "styled-components";
-import { useCartItems } from "../CartProvider";
+
+import { BREAK_POINTS } from "../../constants";
 import useHasMounted from "../../hooks/use-has-mounted.hook";
+import { useCartItems } from "../CartProvider";
+
+import CheckoutItem from "./CheckoutItem";
 
 const Wrapper = styled.div`
   margin: var(--space-64) auto;

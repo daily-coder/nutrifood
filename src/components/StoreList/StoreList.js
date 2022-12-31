@@ -1,6 +1,8 @@
-import MaxWidthWrapper from "../MaxWidthWrapper";
-import StoreItem from "./StoreItem";
 import styled from "styled-components";
+
+import MaxWidthWrapper from "../MaxWidthWrapper";
+
+import StoreItem from "./StoreItem";
 
 const Wrapper = styled.div`
   margin: var(--space-64) 0;

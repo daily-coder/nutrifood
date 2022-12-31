@@ -1,7 +1,8 @@
-import Button from "../Button";
-import CloseIcon from "../../../public/svg/close-btn.svg";
-import RoundBtn from "../RoundBtn";
 import styled from "styled-components";
+
+import CloseIcon from "../../../public/svg/close-btn.svg";
+import Button from "../Button";
+import RoundBtn from "../RoundBtn";
 
 const Wrapper = styled.form`
   position: relative; // for close-btn-icon

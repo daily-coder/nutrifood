@@ -1,4 +1,5 @@
 import path from "path";
+
 import sizeOf from "image-size";
 
 function getImageDimensions(imagePath) {

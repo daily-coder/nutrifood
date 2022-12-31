@@ -1,9 +1,10 @@
+import Image from "next/image";
+import styled from "styled-components";
+
+import HeroImage from "../../../public/images/hero-image.jpg";
 import { BREAK_POINTS } from "../../constants";
 import Button from "../Button";
-import HeroImage from "../../../public/images/hero-image.jpg";
-import Image from "next/image";
-import MaxWidthWrapper from "../MaxWidthWrapper/";
-import styled from "styled-components";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const Wrapper = styled.section`
   padding: 0;

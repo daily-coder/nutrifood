@@ -1,7 +1,9 @@
+import styled from "styled-components";
+
 import { BREAK_POINTS } from "../../constants";
+
 import PaymentOptions from "./PaymentOptions";
 import SummaryTable from "./SummaryTable";
-import styled from "styled-components";
 
 const Wrapper = styled.aside`
   margin: var(--space-128) auto 0;

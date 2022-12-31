@@ -1,15 +1,17 @@
-import { BREAK_POINTS } from "../../constants";
-import BagIconLink from "./BagIconLink";
-import HamburgerIcon from "../HamburgerIcon";
 import Link from "next/link";
-import MaxWidthWrapper from "../MaxWidthWrapper/";
-import NavSlider from "./NavSlider";
-import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
-import Overlay from "./Overlay";
-import SignUpForm from "../SignUpForm";
-import styled from "styled-components";
-import useScrollPosition from "../../hooks/use-scroll-position.hook";
 import { useState } from "react";
+import styled from "styled-components";
+
+import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
+import { BREAK_POINTS } from "../../constants";
+import useScrollPosition from "../../hooks/use-scroll-position.hook";
+import HamburgerIcon from "../HamburgerIcon";
+import MaxWidthWrapper from "../MaxWidthWrapper/";
+import SignUpForm from "../SignUpForm";
+
+import BagIconLink from "./BagIconLink";
+import NavSlider from "./NavSlider";
+import Overlay from "./Overlay";
 
 const Wrapper = styled.header`
   position: fixed;

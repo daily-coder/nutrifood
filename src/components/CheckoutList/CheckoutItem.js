@@ -1,10 +1,11 @@
-import { ACTIONS, useCartDispatch } from "../CartProvider";
-import Button from "../Button";
-import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
-import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
 import Image from "next/image";
 import { memo } from "react";
 import styled from "styled-components";
+
+import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
+import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
+import Button from "../Button";
+import { ACTIONS, useCartDispatch } from "../CartProvider";
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import throttle from "../utils/throttle";
 
 function useScrollPosition(throttleBy = 250) {

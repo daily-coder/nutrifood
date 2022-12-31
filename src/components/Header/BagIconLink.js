@@ -1,6 +1,7 @@
-import BagIcon from "../../../public/svg/bag.svg";
 import Link from "next/link";
 import styled from "styled-components";
+
+import BagIcon from "../../../public/svg/bag.svg";
 import { useCartItems } from "../CartProvider";
 
 const Wrapper = styled(Link)`

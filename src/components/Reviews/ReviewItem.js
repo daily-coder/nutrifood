@@ -1,11 +1,12 @@
-import { BREAK_POINTS } from "../../constants";
 import Image from "next/image";
-import SocialIconLink from "./SocialIconLink";
 import styled from "styled-components";
 
 import FacebookIcon from "../../../public/svg/facebook.svg";
 import InstagramIcon from "../../../public/svg/instagram.svg";
 import TwitterIcon from "../../../public/svg/twitter.svg";
+import { BREAK_POINTS } from "../../constants";
+
+import SocialIconLink from "./SocialIconLink";
 
 const Wrapper = styled.div`
   display: grid;

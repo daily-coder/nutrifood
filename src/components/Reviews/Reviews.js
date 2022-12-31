@@ -1,7 +1,8 @@
-import Carousel from "./Carousel";
-import REVIEWS_DATA from "./Reviews.constants";
-import ReviewItem from "./ReviewItem";
 import styled from "styled-components";
+
+import Carousel from "./Carousel";
+import ReviewItem from "./ReviewItem";
+import REVIEWS_DATA from "./Reviews.constants";
 
 const Wrapper = styled.section`
   overflow: hidden;

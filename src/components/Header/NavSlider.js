@@ -1,7 +1,8 @@
+import styled from "styled-components";
+
+import PersonCircleIcon from "../../../public/svg/person-circle.svg";
 import { BREAK_POINTS } from "../../constants";
 import Navbar from "../Navbar";
-import PersonCircleIcon from "../../../public/svg/person-circle.svg";
-import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: fixed;
