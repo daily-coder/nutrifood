@@ -1,5 +1,5 @@
+import { createContext, useContext } from "react";
 import { CART_ITEMS_KEY } from "../../constants";
-import { createContext } from "react";
 import usePersistedReducer from "../../hooks/use-persisted-reducer.hooks";
 
 /**
@@ -8,8 +8,24 @@ import usePersistedReducer from "../../hooks/use-persisted-reducer.hooks";
  * The purpose is to get an idea of how it can help solve the problem of unnecessary re-rendering.
  */
 
-export const CartItemsContext = createContext();
-export const CartDispatchContext = createContext();
+const CartItemsContext = createContext();
+const CartDispatchContext = createContext();
+
+export function useCartItems() {
+  const context = useContext(CartItemsContext);
+  if (!context) {
+    throw new Error("useCartItems should be used within CartProvider");
+  }
+  return context;
+}
+
+export function useCartDispatch() {
+  const context = useContext(CartDispatchContext);
+  if (!context) {
+    throw new Error("useCartDispatch should be used within CartProvider");
+  }
+  return context;
+}
 
 export const ACTIONS = {
   ADD_ITEM: "add-item",

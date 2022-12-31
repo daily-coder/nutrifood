@@ -1,9 +1,9 @@
-import { ACTIONS, CartDispatchContext } from "../CartProvider";
-import { memo, useContext } from "react";
+import { ACTIONS, useCartDispatch } from "../CartProvider";
 import Button from "../Button";
 import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
 import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
 import Image from "next/image";
+import { memo } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -60,7 +60,7 @@ const Quantity = styled.p`
 `;
 
 function CheckoutItem({ id, src, item, width, height, price, quantity }) {
-  const dispatch = useContext(CartDispatchContext);
+  const dispatch = useCartDispatch();
 
   return (
     <Wrapper>

@@ -1,7 +1,7 @@
-import { ACTIONS, CartDispatchContext } from "../CartProvider";
-import { memo, useContext } from "react";
+import { ACTIONS, useCartDispatch } from "../CartProvider";
 import Button from "../Button";
 import Image from "next/image";
+import { memo } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -38,7 +38,7 @@ const ButtonWrapper = styled.div`
 `;
 
 function StoreItem({ id, item, price, src, width, height, imgsize }) {
-  const dispatch = useContext(CartDispatchContext);
+  const dispatch = useCartDispatch();
 
   function handleClick() {
     dispatch({

@@ -1,8 +1,7 @@
 import BagIcon from "../../../public/svg/bag.svg";
-import { CartItemsContext } from "../CartProvider";
 import Link from "next/link";
 import styled from "styled-components";
-import { useContext } from "react";
+import { useCartItems } from "../CartProvider";
 
 const Wrapper = styled(Link)`
   position: relative;
@@ -25,7 +24,7 @@ const Badge = styled.span`
 `;
 
 function BagIconLink() {
-  const cartItems = useContext(CartItemsContext);
+  const cartItems = useCartItems();
 
   return (
     <Wrapper href="/checkout">
