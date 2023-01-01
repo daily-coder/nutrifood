@@ -1,6 +1,6 @@
 import Meta from "../components/Meta";
-import STORE_ITEMS_DATA from "../data/store";
 import StoreList from "../components/StoreList";
+import STORE_ITEMS_DATA from "../data/store";
 import getImageDimensions from "../utils/get-image-dimensions";
 
 function Store({ storeItemsData }) {

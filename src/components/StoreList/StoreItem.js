@@ -1,8 +1,9 @@
-import Button from "../Button";
-import CartContext from "../CartContext/CartContext";
 import Image from "next/image";
+import { memo } from "react";
 import styled from "styled-components";
-import { useContext } from "react";
+
+import Button from "../Button";
+import { ACTIONS, useCartDispatch } from "../CartProvider";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -38,10 +39,13 @@ const ButtonWrapper = styled.div`
 `;
 
 function StoreItem({ id, item, price, src, width, height, imgsize }) {
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useCartDispatch();
 
   function handleClick() {
-    addToCart({ id, item, price, src, width, height });
+    dispatch({
+      type: ACTIONS.ADD_ITEM,
+      payload: { newCartItem: { id, item, price, src, width, height } },
+    });
   }
 
   return (
@@ -70,4 +74,4 @@ function StoreItem({ id, item, price, src, width, height, imgsize }) {
   );
 }
 
-export default StoreItem;
+export default memo(StoreItem);

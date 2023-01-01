@@ -1,10 +1,12 @@
-import { BREAK_POINTS } from "../../constants";
 import Link from "next/link";
-import MaxWidthWrapper from "../MaxWidthWrapper";
-import PRODUCT_ITEMS_DATA from "./Products.constants";
-import ProductItem from "./ProductItem";
-import RightArrowIcon from "../../../public/svg/right-arrow.svg";
 import styled from "styled-components";
+
+import RightArrowIcon from "../../../public/svg/right-arrow.svg";
+import { BREAK_POINTS } from "../../constants";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+
+import ProductItem from "./ProductItem";
+import PRODUCT_ITEMS_DATA from "./Products.constants";
 
 const DescriptionWrapper = styled.div`
   display: flex;

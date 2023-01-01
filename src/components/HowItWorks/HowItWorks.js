@@ -1,8 +1,10 @@
+import styled from "styled-components";
+
 import { BREAK_POINTS } from "../../constants";
 import MaxWidthWrapper from "../MaxWidthWrapper";
+
 import WORK_ITEMS_DATA from "./HowItWorks.constants";
 import WorkItem from "./WorkItem";
-import styled from "styled-components";
 
 const Description = styled.p`
   text-align: center;

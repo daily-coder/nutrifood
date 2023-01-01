@@ -1,10 +1,11 @@
-import Button from "../Button";
-import CartContext from "../CartContext/CartContext";
+import Image from "next/image";
+import { memo } from "react";
+import styled from "styled-components";
+
 import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
 import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
-import Image from "next/image";
-import styled from "styled-components";
-import { useContext } from "react";
+import Button from "../Button";
+import { ACTIONS, useCartDispatch } from "../CartProvider";
 
 const Wrapper = styled.div`
   display: flex;
@@ -60,19 +61,7 @@ const Quantity = styled.p`
 `;
 
 function CheckoutItem({ id, src, item, width, height, price, quantity }) {
-  const { deleteFromCart, changeQuantity } = useContext(CartContext);
-
-  function handleClick() {
-    deleteFromCart(id);
-  }
-
-  function incrementQuantity() {
-    changeQuantity(id, "increase");
-  }
-
-  function decrementQuantity() {
-    changeQuantity(id, "decrease");
-  }
+  const dispatch = useCartDispatch();
 
   return (
     <Wrapper>
@@ -87,20 +76,36 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
 
       <div>
         <Title>{item}</Title>
-        <Price>${price}</Price>
-        <DeleteButton size="normal" type="button" onClick={handleClick}>
+        <Price>${(price * quantity).toFixed(2)}</Price>
+        <DeleteButton
+          size="normal"
+          type="button"
+          onClick={() =>
+            dispatch({ type: ACTIONS.DELETE_ITEM, payload: { id } })
+          }
+        >
           Delete
         </DeleteButton>
       </div>
 
       <QuantityWrapper>
-        <ChevronUpIconBtn type="button" onClick={incrementQuantity}>
+        <ChevronUpIconBtn
+          type="button"
+          onClick={() =>
+            dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: { id } })
+          }
+        >
           <ChevronUpIcon width="24" />
         </ChevronUpIconBtn>
 
         <Quantity>{quantity}</Quantity>
 
-        <ChevronDownIconBtn type="button" onClick={decrementQuantity}>
+        <ChevronDownIconBtn
+          type="button"
+          onClick={() =>
+            dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { id } })
+          }
+        >
           <ChevronDownIcon width="24" />
         </ChevronDownIconBtn>
       </QuantityWrapper>
@@ -108,4 +113,4 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
   );
 }
 
-export default CheckoutItem;
+export default memo(CheckoutItem);

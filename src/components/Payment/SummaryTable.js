@@ -1,6 +1,6 @@
-import CartContext from "../CartContext";
 import styled from "styled-components";
-import { useContext } from "react";
+
+import { useCartItems } from "../CartProvider";
 
 const Wrapper = styled.table`
   table-layout: fixed;
@@ -26,8 +26,9 @@ const Divider = styled.div`
 `;
 
 function SummaryTable() {
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useCartItems();
 
+  // calculation is not expensive enough to use useMemo;
   const result = cartItems.reduce(
     (total, { quantity, price }) => total + quantity * price,
     0

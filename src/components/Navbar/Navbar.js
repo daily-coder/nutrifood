@@ -1,7 +1,9 @@
-import { BREAK_POINTS } from "../../constants";
-import NAV_LINKS from "./Navbar.constants";
-import NavItem from "./NavItem";
 import styled from "styled-components";
+
+import { BREAK_POINTS } from "../../constants";
+
+import NavItem from "./NavItem";
+import NAV_LINKS from "./Navbar.constants";
 
 const Wrapper = styled.nav`
   margin: 0;

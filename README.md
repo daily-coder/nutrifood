@@ -88,16 +88,23 @@ Follow the following steps to get development environment running.
 * Development server
 
   ```bash
-  npm start
+  npm run dev
   ```
 
-* build
+* Production server
+
+  ```bash
+  npm run start
+  ```
+
+* Build
 
   ```bash
   npm run build
   ```
-* Deployment
+
+* Lint
 
   ```bash
-  npm run deploy
+  npm run lint
   ```

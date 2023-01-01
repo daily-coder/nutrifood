@@ -1,15 +1,17 @@
-import { BREAK_POINTS } from "../../constants";
-import BagIconLink from "./BagIconLink";
-import HamburgerIcon from "../HamburgerIcon";
 import Link from "next/link";
-import MaxWidthWrapper from "../MaxWidthWrapper/";
-import NavSlider from "./NavSlider";
-import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
-import Overlay from "./Overlay";
-import SignUpForm from "../SignUpForm";
-import styled from "styled-components";
-import useScrollPosition from "../../hooks/use-scroll-position.hook";
 import { useState } from "react";
+import styled from "styled-components";
+
+import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
+import { BREAK_POINTS } from "../../constants";
+import useScrollPosition from "../../hooks/use-scroll-position.hook";
+import HamburgerIcon from "../HamburgerIcon";
+import MaxWidthWrapper from "../MaxWidthWrapper/";
+import SignUpForm from "../SignUpForm";
+
+import BagIconLink from "./BagIconLink";
+import NavSlider from "./NavSlider";
+import Overlay from "./Overlay";
 
 const Wrapper = styled.header`
   position: fixed;
@@ -76,22 +78,6 @@ function Header() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [, scrollY] = useScrollPosition(100);
 
-  function toggleMenu() {
-    setIsMenuOpen((prevIsOpen) => !prevIsOpen);
-  }
-
-  function closeMenu() {
-    setIsMenuOpen(false);
-  }
-
-  function openSignUpForm() {
-    setIsFormOpen(true);
-  }
-
-  function closeSignUpForm() {
-    setIsFormOpen(false);
-  }
-
   return (
     <Wrapper scrollY={scrollY}>
       <MaxWidthWrapper>
@@ -99,7 +85,7 @@ function Header() {
           <MenuButton
             type="button"
             aria-label="Menu button"
-            onClick={toggleMenu}
+            onClick={() => setIsMenuOpen((prevIsOpen) => !prevIsOpen)}
           >
             <HamburgerIcon isMenuOpen={isMenuOpen} />
           </MenuButton>
@@ -110,8 +96,8 @@ function Header() {
 
           <NavSlider
             isMenuOpen={isMenuOpen}
-            closeMenu={closeMenu}
-            onClick={() => openSignUpForm()}
+            closeMenu={() => setIsMenuOpen(false)}
+            onClick={() => setIsFormOpen(true)}
           />
 
           <BagIconLinkWrapper>
@@ -120,10 +106,10 @@ function Header() {
         </FlexWrapper>
 
         <SignUpFormWrapper isFormOpen={isFormOpen}>
-          {isFormOpen && <SignUpForm onClick={() => closeSignUpForm()} />}
+          {isFormOpen && <SignUpForm onClick={() => setIsFormOpen(false)} />}
         </SignUpFormWrapper>
 
-        <Overlay isMenuOpen={isMenuOpen} onClick={closeMenu} />
+        <Overlay isMenuOpen={isMenuOpen} onClick={() => setIsMenuOpen(false)} />
       </MaxWidthWrapper>
     </Wrapper>
   );

@@ -1,9 +1,11 @@
+import styled from "styled-components";
+
 import ArrowUpIcon from "../../../public/svg/arrow-up.svg";
 import { BREAK_POINTS } from "../../constants";
-import FooterItem from "./FooterItem";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import RoundBtn from "../RoundBtn";
-import styled from "styled-components";
+
+import FooterItem from "./FooterItem";
 
 const Wrapper = styled.footer`
   position: relative;
