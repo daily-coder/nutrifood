@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   border-radius: var(--border-radius-5);
 `;
 
-const ImgWrapper = styled.div`
+const ImgWrapper = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +50,7 @@ function StoreItem({ id, item, price, src, width, height, imgsize }) {
 
   return (
     <Wrapper>
-      <ImgWrapper>
+      <ImgWrapper href={`/articles/${item}`}>
         <StoreImg
           src={src}
           alt={`Image of ${item}`}
