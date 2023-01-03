@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import server from "../../../../config";
 import Meta from "../../../components/Meta";
 import ARTICLES from "../../../data/articles";
 
@@ -57,7 +58,9 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const paths = ARTICLES.map((article) => ({ params: { id: article.title } }));
+  const response = await fetch(`${server}/api/articles`);
+  const articles = await response.json();
+  const paths = articles.map((article) => ({ params: { id: article.title } }));
 
   return {
     paths,
