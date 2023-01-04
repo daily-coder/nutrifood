@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-import server from "../../../../config";
-import Meta from "../../../components/Meta";
-import ARTICLES from "../../../data/articles";
+import server from "../../../config";
+import Meta from "../../components/Meta";
 
 const ArticleWrapper = styled.div`
   max-width: 800px;
@@ -46,9 +45,10 @@ function ArticleItem({ title, about, nutrition }) {
 export default ArticleItem;
 
 export async function getStaticProps(context) {
-  const article = ARTICLES.find(
-    (article) => article.title === context.params.id
+  const response = await fetch(
+    `${server}/api/articles/${context.params.title}`
   );
+  const article = await response.json();
 
   return {
     props: {
@@ -60,7 +60,9 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const response = await fetch(`${server}/api/articles`);
   const articles = await response.json();
-  const paths = articles.map((article) => ({ params: { id: article.title } }));
+  const paths = articles.map((article) => ({
+    params: { title: article.title },
+  }));
 
   return {
     paths,
