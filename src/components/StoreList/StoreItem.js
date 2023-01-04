@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { memo } from "react";
 import styled from "styled-components";
 
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
   border-radius: var(--border-radius-5);
 `;
 
-const ImgWrapper = styled.a`
+const ImgWrapper = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
