@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
 import { BREAK_POINTS } from "../../constants";
-import useScrollPosition from "../../hooks/use-scroll-position.hook";
 import HamburgerIcon from "../HamburgerIcon";
 import MaxWidthWrapper from "../MaxWidthWrapper/";
 import SignUpForm from "../SignUpForm";
@@ -12,6 +11,7 @@ import SignUpForm from "../SignUpForm";
 import BagIconLink from "./BagIconLink";
 import NavSlider from "./NavSlider";
 import Overlay from "./Overlay";
+import useScrollPosition from "./use-scroll-position.hook";
 
 const Wrapper = styled.header`
   position: fixed;
