@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 import ChevronLeftIcon from "../../../public/svg/chevron-left.svg";
 import ChevronRightIcon from "../../../public/svg/chevron-right.svg";
-import useDimensions from "../../hooks/use-dimensions.hook";
 import RoundBtn from "../RoundBtn";
+
+import useDimensions from "./use-dimensions.hook";
 
 const Wrapper = styled.div`
   max-width: 600px;
