@@ -33,7 +33,7 @@
     "husky": "^8.0.2",
     "image-size": "^1.0.2",
     "immer": "^9.0.16",
-    "lint-staged": "^13.1.0",
+    "lint-staged": "^12.5.0",
     "new-component": "^4.0.1",
     "prettier": "^2.8.0",
     "styled-components": "^5.3.6",
