@@ -198,25 +198,12 @@ const ARTICLES = [
       disease-resistant varieties. Many cultivars are available that produce mature 
       fruit within 100 days of planting. In 2017, China produced about two-thirds of 
       "the world's total of watermelons.`,
-    nutrition: `Watermelon (Citrullus lanatus) is a flowering plant species of the 
-      Cucurbitaceae family and the name of its edible fruit. A scrambling and 
-      trailing vine-like plant, it is a highly cultivated fruit worldwide, with more 
-      than 1,000 varieties. Watermelon is grown in favorable climates from tropical 
-      to temperate regions worldwide for its large edible fruit, which is a berry 
-      with a hard rind and no internal divisions, and is botanically called a pepo. 
-      The sweet, juicy flesh is usually deep red to pink, with many black seeds, 
-      although seedless varieties exist. The fruit can be eaten raw or pickled, and 
-      the rind is edible after cooking. It may also be consumed as a juice or an 
-      ingredient in mixed beverages.Kordofan melons from Sudan are the closest 
-      relatives and may be progenitors of modern, cultivated watermelons. Wild 
-      watermelon seeds were found in Uan Muhuggiag, a prehistoric site in Libya that 
-      dates to approximately 3500 BC. Watermelons were domesticated in north-east 
-      Africa, and cultivated in Egypt by 2000 BC, although they were not the sweet 
-      modern variety. Sweet dessert watermelons spread across the Mediterranean world 
-      during Roman times.Considerable breeding effort has developed 
-      disease-resistant varieties. Many cultivars are available that produce mature 
-      fruit within 100 days of planting. In 2017, China produced about two-thirds of 
-      the world's total of watermelons.`,
+    nutrition: `Watermelon fruit is 91% water, contains 6% sugars, and is low in fat.
+    In a 100-gram (3+1⁄2-ounce) serving, watermelon fruit supplies 125 
+    kilojoules (30 kilocalories) of food energy and low amounts of essential
+    nutrients. Only vitamin C is present in appreciable content at 10% of the
+    Daily Value. Watermelon pulp contains carotenoids, including lycopene.
+    The amino acid citrulline is produced in watermelon rind.`,
   },
   {
     id: "0e05f712-b31e-4862-ae76-376f713ef90f",
@@ -676,20 +663,7 @@ const ARTICLES = [
       Value (DV) vitamin A (20%), and vitamin B6 (23% DV), with moderate contents 
       of riboflavin (12%), folate (12% DV), and vitamin E (11% DV). A red bell pepper 
       supplies twice the vitamin C and eight times the vitamin A content of a green 
-      bell pepper. Like the tomato, bell peppers are botanical fruits but 
-      culinary vegetables. Pieces of bell pepper are commonly used in garden salads 
-      and as toppings on pizza. There are many varieties of stuffed peppers prepared 
-      using hollowed or halved bell peppers. Bell peppers (and other cultivars of 
-      Capsicum annuum) may be used in the production of the spice paprika. The bell 
-      pepper is the only member of the genus Capsicum that does not produce 
-      capsaicin, a lipophilic chemical that can cause a strong burning sensation when 
-      it comes in contact with mucous membranes. They are thus scored in the lowest 
-      level of the Scoville scale, meaning that they are not spicy. This absence of 
-      capsaicin is due to a recessive form of a gene that eliminates the compound 
-      and, consequently, the "hot" taste usually associated with the rest of the 
-      genus Capsicum. This recessive gene is overwritten in the Mexibelle pepper, a 
-      hybrid variety of bell pepper that produces small amounts of capsaicin (and is 
-      thus mildly pungent). Sweet pepper cultivars produce non-pungent capsaicinoids.`,
+      bell pepper.`,
   },
   {
     id: "8e277e55-8086-4153-bbe9-3ee1abbeac0f",
