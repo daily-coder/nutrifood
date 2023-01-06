@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 
 import { CART_ITEMS_KEY } from "../../constants";
 
-import usePersistedReducer from "./use-persisted-reducer.hooks";
+import usePersistedReducer from "./use-persisted-reducer.hook";
 
 /**
  * NOTE:
