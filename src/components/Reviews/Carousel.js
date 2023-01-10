@@ -106,7 +106,7 @@ function Carousel({ sliderItems, gap }) {
       <SlideBtnWrapper>
         <RoundBtn
           type="button"
-          aria-label="slide button left"
+          ariaLabel="slide button left"
           onClick={decrementCounter}
         >
           <ChevronLeftIcon width="25" aria-hidden="true" />
@@ -115,7 +115,7 @@ function Carousel({ sliderItems, gap }) {
         <SlideRightBtnWrapper>
           <RoundBtn
             type="button"
-            aria-label="slide button right"
+            ariaLabel="slide button right"
             onClick={incrementCounter}
           >
             <ChevronRightIcon width="25" aria-hidden="true" />

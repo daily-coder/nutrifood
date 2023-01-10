@@ -90,7 +90,7 @@ function Header() {
             <HamburgerIcon isMenuOpen={isMenuOpen} />
           </MenuButton>
 
-          <LogoLink href="/">
+          <LogoLink href="/" aria-label="link to home page">
             <LogoIcon aria-hidden="true" />
           </LogoLink>
 
