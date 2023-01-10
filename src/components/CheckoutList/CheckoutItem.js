@@ -94,6 +94,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
           onClick={() =>
             dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: { id } })
           }
+          aria-label="Increment item quantity"
         >
           <ChevronUpIcon width="24" />
         </ChevronUpIconBtn>
@@ -105,6 +106,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
           onClick={() =>
             dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { id } })
           }
+          aria-label="Decrement item quantity"
         >
           <ChevronDownIcon width="24" />
         </ChevronDownIconBtn>

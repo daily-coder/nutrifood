@@ -14,13 +14,14 @@ const Wrapper = styled.button`
   }
 `;
 
-function RoundBtn({ href, children, onClick, type }) {
+function RoundBtn({ href, children, onClick, type, ariaLabel }) {
   return (
     <Wrapper
       as={href ? "a" : "button"}
       href={href}
       type={type}
       onClick={onClick}
+      aria-label={ariaLabel}
     >
       {children}
     </Wrapper>
