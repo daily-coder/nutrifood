@@ -28,7 +28,7 @@ function BagIconLink() {
   const cartItems = useCartItems();
 
   return (
-    <Wrapper href="/checkout" aria-label="bag">
+    <Wrapper href="/checkout" aria-label="checkout bag">
       <BagIcon width="24" />
       {cartItems.length > 0 && <Badge>{cartItems.length}</Badge>}
     </Wrapper>
