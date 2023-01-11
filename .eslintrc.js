@@ -1,5 +1,10 @@
 module.exports = {
-  extends: ["standard", "plugin:prettier/recommended", "next/core-web-vitals"],
+  extends: [
+    "standard",
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended",
+    "next/core-web-vitals",
+  ],
   rules: {
     "no-console": "warn",
     "import/order": [
