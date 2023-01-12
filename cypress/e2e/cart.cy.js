@@ -27,11 +27,11 @@ describe("checkout item", () => {
 
       cy.findByLabelText(/checkout bag/i).click();
 
-      cy.assertItemPrice(prices[0].textContent);
+      cy.assertItemPrice(originalPrice);
       cy.incrementQuantity();
-      cy.assertItemPrice(`$${originalPrice * 2}`);
+      cy.assertItemPrice(originalPrice * 2);
       cy.decrementQuantity();
-      cy.assertItemPrice(`$${originalPrice}`);
+      cy.assertItemPrice(originalPrice);
     });
   });
 });
