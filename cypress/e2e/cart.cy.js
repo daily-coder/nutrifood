@@ -31,12 +31,7 @@ describe("checkout item", () => {
       // default
       cy.get("@checkout-item-price").should("have.text", prices[0].textContent);
 
-      // increment
-      cy.findByRole("button", { name: /increment item quantity/i })
-        .should("be.visible")
-        .click({
-          force: true,
-        });
+      cy.incrementQuantity();
 
       cy.get("@checkout-item-price").should(
         "have.text",
@@ -75,12 +70,7 @@ describe("payment", () => {
       );
       cy.get("@totalRow").should("have.text", `total${prices[0].textContent}`);
 
-      // increment
-      cy.findByRole("button", { name: /increment item quantity/i })
-        .should("be.visible")
-        .click({
-          force: true,
-        });
+      cy.incrementQuantity();
 
       cy.get("@subtotalRow").should(
         "have.text",
