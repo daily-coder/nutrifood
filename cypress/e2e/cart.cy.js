@@ -38,12 +38,7 @@ describe("checkout item", () => {
         `$${originalPrice * 2}`
       );
 
-      // decrement
-      cy.findByRole("button", { name: /decrement item quantity/i })
-        .should("be.visible")
-        .click({
-          force: true,
-        });
+      cy.decrementQuantity();
 
       cy.get("@checkout-item-price").should("have.text", `$${originalPrice}`);
     });
@@ -78,12 +73,7 @@ describe("payment", () => {
       );
       cy.get("@totalRow").should("have.text", `total$${originalPrice * 2}`);
 
-      // decrement
-      cy.findByRole("button", { name: /decrement item quantity/i })
-        .should("be.visible")
-        .click({
-          force: true,
-        });
+      cy.decrementQuantity();
 
       cy.get("@subtotalRow").should("have.text", `subtotal$${originalPrice}`);
       cy.get("@totalRow").should("have.text", `total$${originalPrice}`);

@@ -19,3 +19,11 @@ Cypress.Commands.add("incrementQuantity", () => {
       force: true,
     });
 });
+
+Cypress.Commands.add("decrementQuantity", () => {
+  cy.findByRole("button", { name: /decrement item quantity/i })
+    .should("be.visible")
+    .click({
+      force: true,
+    });
+});
