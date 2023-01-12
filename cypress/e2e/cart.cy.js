@@ -13,6 +13,18 @@ describe("bag", () => {
     // no notification badge is shown if there are no items
     cy.findByLabelText(/checkout bag/i).should("have.text", "");
   });
+
+  it("should persist checkout item data on page reload", () => {
+    cy.visit("/store");
+
+    cy.addToBag();
+
+    cy.findByLabelText(/checkout bag/i).should("have.text", 1);
+
+    cy.reload();
+
+    cy.findByLabelText(/checkout bag/i).should("have.text", 1);
+  });
 });
 
 describe("checkout item", () => {
