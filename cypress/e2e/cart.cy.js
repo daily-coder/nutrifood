@@ -46,28 +46,13 @@ describe("payment", () => {
       const originalPrice = Number(prices[0].textContent.slice(1));
 
       cy.findByLabelText(/checkout bag/i).click();
-      cy.findByRole("row", { name: /subtotal/i }).as("subtotalRow");
-      cy.findByRole("row", { name: /^total/i }).as("totalRow");
 
       // prices of subtotal and total should be same as there are no shipping costs
-      cy.get("@subtotalRow").should(
-        "have.text",
-        `subtotal${prices[0].textContent}`
-      );
-      cy.get("@totalRow").should("have.text", `total${prices[0].textContent}`);
-
+      cy.assertPayment(originalPrice);
       cy.incrementQuantity();
-
-      cy.get("@subtotalRow").should(
-        "have.text",
-        `subtotal$${originalPrice * 2}`
-      );
-      cy.get("@totalRow").should("have.text", `total$${originalPrice * 2}`);
-
+      cy.assertPayment(originalPrice * 2);
       cy.decrementQuantity();
-
-      cy.get("@subtotalRow").should("have.text", `subtotal$${originalPrice}`);
-      cy.get("@totalRow").should("have.text", `total$${originalPrice}`);
+      cy.assertPayment(originalPrice);
     });
   });
 });
