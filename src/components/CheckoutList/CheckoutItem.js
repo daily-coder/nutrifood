@@ -76,7 +76,9 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
 
       <div>
         <Title>{item}</Title>
-        <Price>${(price * quantity).toFixed(2)}</Price>
+        <Price data-testid="checkout-item-price">
+          ${(price * quantity).toFixed(2)}
+        </Price>
         <DeleteButton
           size="normal"
           type="button"
