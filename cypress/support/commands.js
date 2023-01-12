@@ -27,3 +27,7 @@ Cypress.Commands.add("decrementQuantity", () => {
       force: true,
     });
 });
+
+Cypress.Commands.add("assertItemPrice", (textContent) => {
+  cy.findByTestId(/checkout-item-price/i).should("have.text", textContent);
+});
