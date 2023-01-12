@@ -11,3 +11,11 @@ Cypress.Commands.add("removeFromBag", () => {
     .should("be.visible")
     .click({ force: true });
 });
+
+Cypress.Commands.add("incrementQuantity", () => {
+  cy.findByRole("button", { name: /increment item quantity/i })
+    .should("be.visible")
+    .click({
+      force: true,
+    });
+});
