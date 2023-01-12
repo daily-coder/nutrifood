@@ -2,21 +2,13 @@ describe("bag", () => {
   it("should display number of checkout items", () => {
     cy.visit("/store");
 
-    cy.findAllByRole("button", { name: /add to bag/i })
-      .first()
-      .should("be.visible")
-      .click({ force: true })
-      // same item cannot be added again
-      .click({ force: true });
+    cy.addToBag();
 
     cy.findByLabelText(/checkout bag/i)
       .should("have.text", "1")
       .click();
 
-    cy.findAllByRole("button", { name: /delete/i })
-      .first()
-      .should("be.visible")
-      .click({ force: true });
+    cy.removeFromBag();
 
     // no notification badge is shown if there are no items
     cy.findByLabelText(/checkout bag/i).should("have.text", "");
@@ -26,10 +18,8 @@ describe("bag", () => {
 describe("checkout item", () => {
   it("should update price on changing item quantity", () => {
     cy.visit("/store");
-    cy.findAllByRole("button", { name: /add to bag/i })
-      .first()
-      .should("be.visible")
-      .click({ force: true });
+
+    cy.addToBag();
 
     cy.findAllByText(/^\$\d\.\d{2}/).then((prices) => {
       const originalPrice = Number(prices[0].textContent.slice(1));
@@ -69,10 +59,7 @@ describe("payment", () => {
   it("should update subtotal and total price", () => {
     cy.visit("/store");
 
-    cy.findAllByRole("button", { name: /add to bag/i })
-      .first()
-      .should("be.visible")
-      .click({ force: true });
+    cy.addToBag();
 
     cy.findAllByText(/^\$\d\.\d{2}/).then((prices) => {
       const originalPrice = Number(prices[0].textContent.slice(1));
