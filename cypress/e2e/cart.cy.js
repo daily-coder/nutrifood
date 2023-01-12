@@ -21,26 +21,17 @@ describe("checkout item", () => {
 
     cy.addToBag();
 
+    // find the original price from store page and assert using it.
     cy.findAllByText(/^\$\d\.\d{2}/).then((prices) => {
       const originalPrice = Number(prices[0].textContent.slice(1));
 
       cy.findByLabelText(/checkout bag/i).click();
 
-      cy.findByTestId(/checkout-item-price/i).as("checkout-item-price");
-
-      // default
-      cy.get("@checkout-item-price").should("have.text", prices[0].textContent);
-
+      cy.assertItemPrice(prices[0].textContent);
       cy.incrementQuantity();
-
-      cy.get("@checkout-item-price").should(
-        "have.text",
-        `$${originalPrice * 2}`
-      );
-
+      cy.assertItemPrice(`$${originalPrice * 2}`);
       cy.decrementQuantity();
-
-      cy.get("@checkout-item-price").should("have.text", `$${originalPrice}`);
+      cy.assertItemPrice(`$${originalPrice}`);
     });
   });
 });
