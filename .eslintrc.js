@@ -3,6 +3,7 @@ module.exports = {
     "standard",
     "plugin:prettier/recommended",
     "plugin:cypress/recommended",
+    "plugin:import/recommended",
     "next/core-web-vitals",
   ],
   rules: {
@@ -16,6 +17,7 @@ module.exports = {
         },
       },
     ],
+    "import/newline-after-import": ["error", { count: 1 }],
     "import/export": "off",
     "react/no-unknown-property": "warn",
   },
