@@ -29,18 +29,18 @@ Live demo: [https://nutri-food.vercel.app/](https://nutri-food.vercel.app/)
 
 ## NPM Packages
 
+- [Commitlint](https://commitlint.js.org/) - A tool checks if commit message meets the conventional commit format.
+- [Cypress](https://www.cypress.io/) - End-to-end testing framework.
+- [Eslint](https://eslint.org/) - A pluggable linter to find and fix problems in your JavaScript code.
+- [Husky](https://typicode.github.io/husky) - Modern native git hooks made easy.
+- [Image-size](https://github.com/image-size/image-size) - A Node module to get dimensions of any image file.
+- [Lint-staged](https://github.com/okonet/lint-staged) - Run linters against staged git files.
 - [Next](https://nextjs.org/) - An open-source web development framework created by Vercel enabling React-based web applications with server-side rendering and generating static websites.
+- [Prettier](https://prettier.io/) - An opinionated code formatter.
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Sharp](https://sharp.pixelplumbing.com/) - Node.js module is to convert large images in common formats to smaller, web-friendly JPEG, PNG, WebP, GIF and AVIF images of varying dimensions.
 - [Styled-components](https://styled-components.com/) - Visual primitives for the component age.
-- [Commitlint](https://commitlint.js.org/) - A tool checks if commit message meets the conventional commit format.
 - [Svgr](https://react-svgr.com/) - A complete tool box to take advantage of using SVGs in your React applications.
-- [Eslint](https://eslint.org/) - A pluggable linter to find and fix problems in your JavaScript code.
-- [Prettier](https://prettier.io/) - An opinionated code formatter.
-- [Husky](https://typicode.github.io/husky) - Modern native git hooks made easy.
-- [Lint-staged](https://github.com/okonet/lint-staged) - Run linters against staged git files.
-- [Image-size](https://github.com/image-size/image-size) - A Node module to get dimensions of any image file.
-- [Cypress](https://www.cypress.io/) - End-to-end testing framework.
 
 <br />
 
