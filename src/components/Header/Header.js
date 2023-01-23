@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 import NutriFoodIcon from "../../../public/svg/nutrifood-logo.svg";
 import { BREAK_POINTS } from "../../constants";
-import HamburgerIcon from "../HamburgerIcon";
 import MaxWidthWrapper from "../MaxWidthWrapper/";
 import SignUpForm from "../SignUpForm";
 
 import BagIconLink from "./BagIconLink";
+import HamburgerIcon from "./HamburgerIcon";
 import NavSlider from "./NavSlider";
 import Overlay from "./Overlay";
 import useScrollPosition from "./use-scroll-position.hook";
