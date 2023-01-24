@@ -1,4 +1,5 @@
 import Image from "next/image";
+import propTypes from "prop-types";
 import { memo } from "react";
 import styled from "styled-components";
 
@@ -116,5 +117,15 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
     </Wrapper>
   );
 }
+
+CheckoutItem.propTypes = {
+  id: propTypes.number.isRequired,
+  src: propTypes.string.isRequired,
+  item: propTypes.string.isRequired,
+  width: propTypes.number.isRequired,
+  height: propTypes.number.isRequired,
+  price: propTypes.number.isRequired,
+  quantity: propTypes.number.isRequired,
+};
 
 export default memo(CheckoutItem);
