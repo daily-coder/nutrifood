@@ -1,4 +1,5 @@
 import Link from "next/link";
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const SIZES = {
@@ -42,5 +43,14 @@ function Button({ href, type, size, children, className, onClick }) {
     </Wrapper>
   );
 }
+
+Button.propTypes = {
+  href: propTypes.string,
+  type: propTypes.string,
+  size: propTypes.string.isRequired,
+  className: propTypes.string,
+  children: propTypes.node.isRequired,
+  onclick: propTypes.func,
+};
 
 export default Button;
