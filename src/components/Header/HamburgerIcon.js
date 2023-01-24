@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Line1 = styled.div`
@@ -31,5 +32,9 @@ function HamburgerIcon({ isMenuOpen }) {
     </div>
   );
 }
+
+HamburgerIcon.propTypes = {
+  isMenuOpen: propTypes.bool.isRequired,
+};
 
 export default HamburgerIcon;
