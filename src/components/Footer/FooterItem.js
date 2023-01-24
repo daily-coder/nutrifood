@@ -1,4 +1,5 @@
 import Link from "next/link";
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.li`
@@ -17,5 +18,10 @@ function FooterItem({ href, label }) {
     </Wrapper>
   );
 }
+
+FooterItem.propTypes = {
+  href: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
+};
 
 export default FooterItem;
