@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 import PersonCircleIcon from "../../../public/svg/person-circle.svg";
@@ -75,5 +76,11 @@ function NavSlider({ isMenuOpen, closeMenu, onClick }) {
     </Wrapper>
   );
 }
+
+NavSlider.propTypes = {
+  isMenuOpen: propTypes.bool.isRequired,
+  closeMenu: propTypes.func.isRequired,
+  onClick: propTypes.func.isRequired,
+};
 
 export default NavSlider;
