@@ -7,6 +7,9 @@ import { useCartItems } from "../CartProvider";
 const Wrapper = styled(Link)`
   position: relative;
   color: var(--color-primary);
+  // If the display is set to inline (default for anchor tag), the notification badge
+  // will not be positioned correctly for non-chrome browsers.
+  display: inline-block;
 `;
 
 const Badge = styled.span`
