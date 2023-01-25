@@ -1,4 +1,5 @@
 import Link from "next/link";
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const NavLink = styled(Link)`
@@ -43,5 +44,11 @@ function NavItem({ href, label, onClick }) {
     </li>
   );
 }
+
+NavItem.propTypes = {
+  href: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
+  onClick: propTypes.func.isRequired,
+};
 
 export default NavItem;

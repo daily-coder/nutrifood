@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 import { BREAK_POINTS } from "../../constants";
@@ -35,5 +36,9 @@ function Navbar({ closeMenu }) {
     </Wrapper>
   );
 }
+
+Navbar.propTypes = {
+  closeMenu: propTypes.func.isRequired,
+};
 
 export default Navbar;
