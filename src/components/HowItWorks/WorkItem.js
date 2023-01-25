@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -48,5 +49,12 @@ function WorkItem({ WorkIcon, iconSize, title, description }) {
     </Wrapper>
   );
 }
+
+WorkItem.propTypes = {
+  WorkIcon: propTypes.func.isRequired,
+  iconSize: propTypes.number.isRequired,
+  title: propTypes.string.isRequired,
+  description: propTypes.string.isRequired,
+};
 
 export default WorkItem;
