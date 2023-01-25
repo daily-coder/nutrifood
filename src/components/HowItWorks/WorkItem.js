@@ -22,7 +22,7 @@ const Wrapper = styled.div`
  * To keep all icons consistent following changes are made:
  * stroke-width for bowl icon is changed from 2 to 3
  * fill for house icon is set to currentColor
- * storke for all icons except house is set to currentColor
+ * stroke for all icons except house is set to currentColor
  *
  * all changes are made in .svg files
  */
