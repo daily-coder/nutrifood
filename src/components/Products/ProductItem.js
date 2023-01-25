@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled(Link)`
@@ -58,5 +59,19 @@ function ProductItem({ title, href, src, alt }) {
     </Wrapper>
   );
 }
+
+ProductItem.propTypes = {
+  title: propTypes.string.isRequired,
+  href: propTypes.string.isRequired,
+  alt: propTypes.string.isRequired,
+  src: propTypes.exact({
+    src: propTypes.string.isRequired,
+    height: propTypes.number.isRequired,
+    width: propTypes.number.isRequired,
+    blurDataURL: propTypes.string.isRequired,
+    blurWidth: propTypes.number.isRequired,
+    blurHeight: propTypes.number.isRequired,
+  }),
+};
 
 export default ProductItem;
