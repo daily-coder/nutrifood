@@ -1,4 +1,5 @@
 import Head from "next/head";
+import propTypes from "prop-types";
 
 function Meta({ title, description }) {
   return (
@@ -17,6 +18,11 @@ Meta.defaultProps = {
   title: "NutriFood",
   description:
     "Get quality fresh fruits, vegetables, nuts and more at great price. Free shipping available.",
+};
+
+Meta.propTypes = {
+  title: propTypes.string.isRequired,
+  description: propTypes.string.isRequired,
 };
 
 export default Meta;
