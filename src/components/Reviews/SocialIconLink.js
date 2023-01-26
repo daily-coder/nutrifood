@@ -1,3 +1,5 @@
+import propTypes from "prop-types";
+
 function SocialIconLink({ Icon, href, ariaLabel }) {
   return (
     <a href={href} aria-label={ariaLabel}>
@@ -5,5 +7,11 @@ function SocialIconLink({ Icon, href, ariaLabel }) {
     </a>
   );
 }
+
+SocialIconLink.propTypes = {
+  Icon: propTypes.func.isRequired,
+  href: propTypes.string.isRequired,
+  ariaLabel: propTypes.string.isRequired,
+};
 
 export default SocialIconLink;

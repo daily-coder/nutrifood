@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -125,5 +126,10 @@ function Carousel({ sliderItems, gap }) {
     </>
   );
 }
+
+Carousel.propTypes = {
+  sliderItems: propTypes.arrayOf(propTypes.node).isRequired,
+  gap: propTypes.number.isRequired,
+};
 
 export default Carousel;
