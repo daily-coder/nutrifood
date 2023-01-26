@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.button`
@@ -27,5 +28,13 @@ function RoundBtn({ href, children, onClick, type, ariaLabel }) {
     </Wrapper>
   );
 }
+
+RoundBtn.propTypes = {
+  href: propTypes.string,
+  children: propTypes.node.isRequired,
+  onClick: propTypes.func,
+  type: propTypes.string,
+  ariaLabel: propTypes.string,
+};
 
 export default RoundBtn;
