@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import propTypes from "prop-types";
 import { memo } from "react";
 import styled from "styled-components";
 
@@ -74,5 +75,15 @@ function StoreItem({ id, item, price, src, width, height, imgsize }) {
     </Wrapper>
   );
 }
+
+StoreItem.propTypes = {
+  id: propTypes.number.isRequired,
+  item: propTypes.string.isRequired,
+  price: propTypes.number.isRequired,
+  src: propTypes.string.isRequired,
+  width: propTypes.number.isRequired,
+  height: propTypes.number.isRequired,
+  imgsize: propTypes.number,
+};
 
 export default memo(StoreItem);
