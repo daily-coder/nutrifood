@@ -1,4 +1,4 @@
-import propTypes from "prop-types";
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.button`
@@ -15,7 +15,15 @@ const Wrapper = styled.button`
   }
 `;
 
-function RoundBtn({ href, children, onClick, type, ariaLabel }) {
+interface RoundBtnProps {
+  href?: string;
+  children: ReactNode;
+  onClick?(): void;
+  type?: string;
+  ariaLabel?: string;
+}
+
+function RoundBtn({ href, children, onClick, type, ariaLabel }: RoundBtnProps) {
   return (
     <Wrapper
       as={href ? "a" : "button"}
@@ -28,13 +36,5 @@ function RoundBtn({ href, children, onClick, type, ariaLabel }) {
     </Wrapper>
   );
 }
-
-RoundBtn.propTypes = {
-  href: propTypes.string,
-  children: propTypes.node.isRequired,
-  onClick: propTypes.func,
-  type: propTypes.string,
-  ariaLabel: propTypes.string,
-};
 
 export default RoundBtn;
