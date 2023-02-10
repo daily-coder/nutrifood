@@ -1,5 +1,5 @@
 import Link from "next/link";
-import propTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 
 const SIZES = {
@@ -8,7 +8,7 @@ const SIZES = {
   large: "var(--space-16) var(--space-48)",
 };
 
-const Wrapper = styled.button`
+const Wrapper = styled.button<{ size: keyof typeof SIZES }>`
   padding: ${({ size }) => SIZES[size]};
   border-radius: var(--border-radius-5);
   text-transform: uppercase;
@@ -29,10 +29,26 @@ const Wrapper = styled.button`
   }
 `;
 
-function Button({ href, type, size, children, className, onClick }) {
+interface ButtonProps {
+  href?: string;
+  type?: string;
+  size: keyof typeof SIZES;
+  className?: string;
+  children: React.ReactNode;
+  onClick?(): void;
+}
+
+function Button({
+  href,
+  type,
+  size,
+  children,
+  className,
+  onClick,
+}: ButtonProps) {
   return (
     <Wrapper
-      href={href}
+      href={href as string} // if href is undefined it will be removed from element
       as={href ? Link : "button"}
       type={type}
       size={size}
@@ -43,14 +59,5 @@ function Button({ href, type, size, children, className, onClick }) {
     </Wrapper>
   );
 }
-
-Button.propTypes = {
-  href: propTypes.string,
-  type: propTypes.string,
-  size: propTypes.string.isRequired,
-  className: propTypes.string,
-  children: propTypes.node.isRequired,
-  onclick: propTypes.func,
-};
 
 export default Button;
