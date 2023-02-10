@@ -1,7 +1,12 @@
 import Head from "next/head";
 import propTypes from "prop-types";
 
-function Meta({ title, description }) {
+interface MetaProps {
+  title?: string;
+  description?: string;
+}
+
+function Meta({ title, description }: MetaProps) {
   return (
     <Head>
       <meta charSet="UTF-8" />
