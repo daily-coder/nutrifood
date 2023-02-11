@@ -1,5 +1,4 @@
-import propTypes from "prop-types";
-import { useMemo, useRef, useState } from "react";
+import { ReactNode, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 
 import ChevronLeftIcon from "../../../public/svg/chevron-left.svg";
@@ -13,7 +12,7 @@ const Wrapper = styled.div`
   margin: var(--space-48) auto;
 `;
 
-const Slider = styled.div`
+const Slider = styled.div<{ gap: number }>`
   display: grid;
   grid-template-columns: repeat(8, 100%);
   gap: ${({ gap }) => `${gap}px`};
@@ -29,7 +28,12 @@ const SlideRightBtnWrapper = styled.div`
   margin-left: var(--space-24);
 `;
 
-function Carousel({ sliderItems, gap }) {
+interface CarouselProps {
+  sliderItems: ReactNode[];
+  gap: number;
+}
+
+function Carousel({ sliderItems, gap }: CarouselProps) {
   // when slider is displayed, the first sliderItem(lastClone) should be hidden,
   // So counter starts from 1 instead of 0;
 
@@ -39,7 +43,7 @@ function Carousel({ sliderItems, gap }) {
   const firstClone = sliderItems[0];
   const lastClone = sliderItems[sliderItems.length - 1];
 
-  const carouselRef = useRef();
+  const carouselRef = useRef<HTMLDivElement>(null);
   const { width } = useDimensions(carouselRef);
   const size = width + gap;
 
@@ -126,10 +130,5 @@ function Carousel({ sliderItems, gap }) {
     </>
   );
 }
-
-Carousel.propTypes = {
-  sliderItems: propTypes.arrayOf(propTypes.node).isRequired,
-  gap: propTypes.number.isRequired,
-};
 
 export default Carousel;

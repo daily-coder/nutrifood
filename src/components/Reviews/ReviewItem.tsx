@@ -1,5 +1,4 @@
 import Image from "next/image";
-import propTypes from "prop-types";
 import styled from "styled-components";
 
 import FacebookIcon from "../../../public/svg/facebook.svg";
@@ -94,7 +93,14 @@ const SOCIAL_MEDIA = [
   },
 ];
 
-function ReviewItem({ src, name, date, reviewPara }) {
+interface ReviewItemProps {
+  src: string;
+  name: string;
+  date: string;
+  reviewPara: string;
+}
+
+function ReviewItem({ src, name, date, reviewPara }: ReviewItemProps) {
   const socialIconLinks = SOCIAL_MEDIA.map(({ media, Icon }) => (
     <SocialIconLink
       key={media}
@@ -128,12 +134,5 @@ function ReviewItem({ src, name, date, reviewPara }) {
     </Wrapper>
   );
 }
-
-ReviewItem.propTypes = {
-  src: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
-  date: propTypes.string.isRequired,
-  reviewPara: propTypes.string.isRequired,
-};
 
 export default ReviewItem;
