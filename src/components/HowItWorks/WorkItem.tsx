@@ -1,4 +1,3 @@
-import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -38,7 +37,14 @@ const Title = styled.h3`
   text-transform: capitalize;
 `;
 
-function WorkItem({ WorkIcon, iconSize, title, description }) {
+interface WorkItemProps {
+  WorkIcon: any; // TODO: fix 'any' type
+  iconSize: number;
+  title: string;
+  description: string;
+}
+
+function WorkItem({ WorkIcon, iconSize, title, description }: WorkItemProps) {
   return (
     <Wrapper>
       <IconWrapper>
@@ -49,12 +55,5 @@ function WorkItem({ WorkIcon, iconSize, title, description }) {
     </Wrapper>
   );
 }
-
-WorkItem.propTypes = {
-  WorkIcon: propTypes.func.isRequired,
-  iconSize: propTypes.number.isRequired,
-  title: propTypes.string.isRequired,
-  description: propTypes.string.isRequired,
-};
 
 export default WorkItem;
