@@ -1,5 +1,7 @@
 interface SocialIconLinkProps {
-  Icon: any; // TODO: fix 'any' type
+  // TODO: fix 'any' type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Icon: any;
   href: string;
   ariaLabel: string;
 }

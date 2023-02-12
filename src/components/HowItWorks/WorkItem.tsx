@@ -38,7 +38,9 @@ const Title = styled.h3`
 `;
 
 interface WorkItemProps {
-  WorkIcon: any; // TODO: fix 'any' type
+  // TODO: fix 'any' type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  WorkIcon: any;
   iconSize: number;
   title: string;
   description: string;
