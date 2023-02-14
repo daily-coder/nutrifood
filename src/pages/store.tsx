@@ -1,9 +1,10 @@
 import Meta from "../components/Meta";
 import StoreList from "../components/StoreList";
 import STORE_ITEMS_DATA from "../data/store";
+import { Item, StoreItemsData } from "../types";
 import getImageDimensions from "../utils/get-image-dimensions";
 
-function Store({ storeItemsData }) {
+function Store({ storeItemsData }: { storeItemsData: StoreItemsData }) {
   return (
     <div>
       <Meta title="NutriFood Store" description="NutriFood online store" />
@@ -13,7 +14,7 @@ function Store({ storeItemsData }) {
   );
 }
 
-function withImageDimensions(items) {
+function withImageDimensions(items: Item[]) {
   return items.map((item) => {
     const metaData = getImageDimensions(item.src);
     return { ...item, ...metaData };
