@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { StoreItemsData } from "../../types";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 
 import StoreItem from "./StoreItem";
@@ -27,7 +28,7 @@ const Divider = styled.hr`
   background-color: var(--color-primary);
 `;
 
-function StoreList({ storeItemsData }) {
+function StoreList({ storeItemsData }: { storeItemsData: StoreItemsData }) {
   const fruitItems = storeItemsData.fruits.map((fruit) => (
     <StoreItem key={fruit.id} {...fruit} />
   ));
@@ -37,7 +38,7 @@ function StoreList({ storeItemsData }) {
   ));
 
   const nutItems = storeItemsData.nuts.map((nuts) => (
-    <StoreItem key={nuts.id} {...nuts} imgSize={170} />
+    <StoreItem key={nuts.id} {...nuts} imgsize={170} />
   ));
 
   return (

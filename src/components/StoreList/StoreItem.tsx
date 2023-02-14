@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import propTypes from "prop-types";
 import { memo } from "react";
 import styled from "styled-components";
 
+import { Item } from "../../types";
 import Button from "../Button";
 import { ACTIONS, useCartDispatch } from "../CartProvider";
 
@@ -21,7 +21,7 @@ const ImgWrapper = styled(Link)`
   height: 200px;
 `;
 
-const StoreImg = styled(Image)`
+const StoreImg = styled(Image)<{ imgsize: number | undefined }>`
   width: ${({ imgsize }) => (imgsize ? imgsize + "px" : "180px")};
   height: ${({ imgsize }) => (imgsize ? imgsize + "px" : "180px")};
   object-fit: cover;
@@ -40,7 +40,21 @@ const ButtonWrapper = styled.div`
   margin: var(--space-16);
 `;
 
-function StoreItem({ id, item, price, src, width, height, imgsize }) {
+interface StoreItemProps extends Item {
+  width: number;
+  height: number;
+  imgsize?: number;
+}
+
+function StoreItem({
+  id,
+  item,
+  price,
+  src,
+  width,
+  height,
+  imgsize,
+}: StoreItemProps) {
   const dispatch = useCartDispatch();
 
   function handleClick() {
@@ -75,15 +89,5 @@ function StoreItem({ id, item, price, src, width, height, imgsize }) {
     </Wrapper>
   );
 }
-
-StoreItem.propTypes = {
-  id: propTypes.number.isRequired,
-  item: propTypes.string.isRequired,
-  price: propTypes.number.isRequired,
-  src: propTypes.string.isRequired,
-  width: propTypes.number.isRequired,
-  height: propTypes.number.isRequired,
-  imgsize: propTypes.number,
-};
 
 export default memo(StoreItem);
