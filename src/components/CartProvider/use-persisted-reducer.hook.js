@@ -15,7 +15,7 @@ function usePersistedReducer(reducer, initialValue, key) {
     if (serializedValue !== null) {
       dispatch({
         type: key,
-        payload: { value: JSON.parse(serializedValue) },
+        payload: JSON.parse(serializedValue),
       });
     }
   }, [key, dispatch]);

@@ -60,7 +60,7 @@ function StoreItem({
   function handleClick() {
     dispatch({
       type: ACTIONS.ADD_ITEM,
-      payload: { newCartItem: { id, item, price, src, width, height } },
+      payload: { id, item, price, src, width, height },
     });
   }
 

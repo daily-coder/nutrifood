@@ -83,9 +83,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
         <DeleteButton
           size="normal"
           type="button"
-          onClick={() =>
-            dispatch({ type: ACTIONS.DELETE_ITEM, payload: { id } })
-          }
+          onClick={() => dispatch({ type: ACTIONS.DELETE_ITEM, payload: id })}
         >
           Delete
         </DeleteButton>
@@ -95,7 +93,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
         <ChevronUpIconBtn
           type="button"
           onClick={() =>
-            dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: { id } })
+            dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: id })
           }
           aria-label="Increment item quantity"
         >
@@ -107,7 +105,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
         <ChevronDownIconBtn
           type="button"
           onClick={() =>
-            dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: { id } })
+            dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: id })
           }
           aria-label="Decrement item quantity"
         >

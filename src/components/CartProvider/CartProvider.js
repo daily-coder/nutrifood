@@ -40,32 +40,32 @@ export const ACTIONS = {
 function cartReducer(draft, { type, payload }) {
   switch (type) {
     case ACTIONS.ADD_ITEM: {
-      if (draft.some((cartItem) => cartItem.id === payload.newCartItem.id)) {
+      if (draft.some((cartItem) => cartItem.id === payload.id)) {
         return draft;
       }
 
-      draft.push({ ...payload.newCartItem, quantity: 1 });
+      draft.push({ ...payload, quantity: 1 });
       break;
     }
 
     case ACTIONS.DELETE_ITEM: {
-      return draft.filter((cartItem) => cartItem.id !== payload.id);
+      return draft.filter((cartItem) => cartItem.id !== payload);
     }
 
     case ACTIONS.INCREMENT_QUANTITY: {
-      const targetItem = draft.find((cartItem) => cartItem.id === payload.id);
+      const targetItem = draft.find((cartItem) => cartItem.id === payload);
       targetItem.quantity = Math.max(targetItem.quantity + 1, 1);
       break;
     }
 
     case ACTIONS.DECREMENT_QUANTITY: {
-      const targetItem = draft.find((cartItem) => cartItem.id === payload.id);
+      const targetItem = draft.find((cartItem) => cartItem.id === payload);
       targetItem.quantity = Math.max(targetItem.quantity - 1, 1);
       break;
     }
 
     case CART_ITEMS_KEY: {
-      return payload.value;
+      return payload;
     }
 
     default: {
