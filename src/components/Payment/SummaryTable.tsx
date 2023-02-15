@@ -40,7 +40,7 @@ function SummaryTable() {
     <Wrapper>
       <tbody>
         <tr>
-          <td colSpan="2">
+          <td>
             <Divider />
           </td>
         </tr>
@@ -53,7 +53,7 @@ function SummaryTable() {
           <TableData>0</TableData>
         </tr>
         <tr>
-          <td colSpan="2">
+          <td>
             <Divider />
           </td>
         </tr>
@@ -62,7 +62,7 @@ function SummaryTable() {
           <TableData>${subtotal}</TableData>
         </tr>
         <tr>
-          <td colSpan="2">
+          <td>
             <Divider />
           </td>
         </tr>
