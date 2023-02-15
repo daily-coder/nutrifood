@@ -1,10 +1,10 @@
 import Image from "next/image";
-import propTypes from "prop-types";
 import { memo } from "react";
 import styled from "styled-components";
 
 import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
 import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
+import { Item } from "../../types";
 import Button from "../Button";
 import { useCartDispatch } from "../CartProvider";
 
@@ -61,7 +61,21 @@ const Quantity = styled.p`
   font-size: var(--font-size-20);
 `;
 
-function CheckoutItem({ id, src, item, width, height, price, quantity }) {
+interface CheckoutItemProps extends Item {
+  width: number;
+  height: number;
+  quantity: number;
+}
+
+function CheckoutItem({
+  id,
+  src,
+  item,
+  width,
+  height,
+  price,
+  quantity,
+}: CheckoutItemProps) {
   const dispatch = useCartDispatch();
 
   return (
@@ -111,15 +125,5 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
     </Wrapper>
   );
 }
-
-CheckoutItem.propTypes = {
-  id: propTypes.number.isRequired,
-  src: propTypes.string.isRequired,
-  item: propTypes.string.isRequired,
-  width: propTypes.number.isRequired,
-  height: propTypes.number.isRequired,
-  price: propTypes.number.isRequired,
-  quantity: propTypes.number.isRequired,
-};
 
 export default memo(CheckoutItem);
