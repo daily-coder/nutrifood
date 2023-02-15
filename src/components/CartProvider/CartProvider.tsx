@@ -1,9 +1,23 @@
 import propTypes from "prop-types";
-import { createContext, useContext } from "react";
+import { createContext, Dispatch, ReactNode, useContext } from "react";
 
 import { CART_ITEMS_KEY } from "../../constants";
+import { Item } from "../../types";
 
 import usePersistedReducer from "./use-persisted-reducer.hook";
+
+interface CartItem extends Item {
+  width: number;
+  height: number;
+  quantity: number;
+}
+
+type Action =
+  | { type: "ADD_ITEM"; payload: CartItem }
+  | { type: "DELETE_ITEM"; payload: number }
+  | { type: "INCREMENT_QUANTITY"; payload: number }
+  | { type: "DECREMENT_QUANTITY"; payload: number }
+  | { type: typeof CART_ITEMS_KEY; payload: CartItem[] }; // set state using localStorage
 
 /**
  * NOTE:
@@ -11,8 +25,8 @@ import usePersistedReducer from "./use-persisted-reducer.hook";
  * The purpose is to get an idea of how it can help solve the problem of unnecessary re-rendering.
  */
 
-const CartItemsContext = createContext();
-const CartDispatchContext = createContext();
+const CartItemsContext = createContext<CartItem[] | null>(null);
+const CartDispatchContext = createContext<Dispatch<Action> | null>(null);
 
 export function useCartItems() {
   const context = useContext(CartItemsContext);
@@ -30,41 +44,40 @@ export function useCartDispatch() {
   return context;
 }
 
-export const ACTIONS = {
-  ADD_ITEM: "add-item",
-  DELETE_ITEM: "delete-item",
-  INCREMENT_QUANTITY: "increment-quantity",
-  DECREMENT_QUANTITY: "decrement-quantity",
-};
-
-function cartReducer(draft, { type, payload }) {
+function cartReducer(draft: CartItem[], { type, payload }: Action) {
   switch (type) {
-    case ACTIONS.ADD_ITEM: {
+    case "ADD_ITEM": {
       if (draft.some((cartItem) => cartItem.id === payload.id)) {
         return draft;
       }
 
-      draft.push({ ...payload, quantity: 1 });
+      draft.push({ ...payload });
       break;
     }
 
-    case ACTIONS.DELETE_ITEM: {
+    case "DELETE_ITEM": {
       return draft.filter((cartItem) => cartItem.id !== payload);
     }
 
-    case ACTIONS.INCREMENT_QUANTITY: {
+    case "INCREMENT_QUANTITY": {
       const targetItem = draft.find((cartItem) => cartItem.id === payload);
+      if (!targetItem) {
+        throw new Error(`no cartItem with id ${payload}`);
+      }
       targetItem.quantity = Math.max(targetItem.quantity + 1, 1);
       break;
     }
 
-    case ACTIONS.DECREMENT_QUANTITY: {
+    case "DECREMENT_QUANTITY": {
       const targetItem = draft.find((cartItem) => cartItem.id === payload);
+      if (!targetItem) {
+        throw new Error(`no cartItem with id ${payload}`);
+      }
       targetItem.quantity = Math.max(targetItem.quantity - 1, 1);
       break;
     }
 
-    case CART_ITEMS_KEY: {
+    case "CART_ITEMS": {
       return payload;
     }
 
@@ -74,8 +87,8 @@ function cartReducer(draft, { type, payload }) {
   }
 }
 
-function CartProvider({ children }) {
-  const [cartItems, dispatch] = usePersistedReducer(
+function CartProvider({ children }: { children: ReactNode }) {
+  const [cartItems, dispatch] = usePersistedReducer<CartItem[], Action>(
     cartReducer,
     [],
     CART_ITEMS_KEY

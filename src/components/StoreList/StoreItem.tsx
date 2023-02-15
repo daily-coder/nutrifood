@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { Item } from "../../types";
 import Button from "../Button";
-import { ACTIONS, useCartDispatch } from "../CartProvider";
+import { useCartDispatch } from "../CartProvider";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -59,8 +59,8 @@ function StoreItem({
 
   function handleClick() {
     dispatch({
-      type: ACTIONS.ADD_ITEM,
-      payload: { id, item, price, src, width, height },
+      type: "ADD_ITEM",
+      payload: { id, item, price, src, width, height, quantity: 1 },
     });
   }
 

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import ChevronDownIcon from "../../../public/svg/chevron-down.svg";
 import ChevronUpIcon from "../../../public/svg/chevron-up.svg";
 import Button from "../Button";
-import { ACTIONS, useCartDispatch } from "../CartProvider";
+import { useCartDispatch } from "../CartProvider";
 
 const Wrapper = styled.div`
   display: flex;
@@ -83,7 +83,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
         <DeleteButton
           size="normal"
           type="button"
-          onClick={() => dispatch({ type: ACTIONS.DELETE_ITEM, payload: id })}
+          onClick={() => dispatch({ type: "DELETE_ITEM", payload: id })}
         >
           Delete
         </DeleteButton>
@@ -92,9 +92,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
       <QuantityWrapper>
         <ChevronUpIconBtn
           type="button"
-          onClick={() =>
-            dispatch({ type: ACTIONS.INCREMENT_QUANTITY, payload: id })
-          }
+          onClick={() => dispatch({ type: "INCREMENT_QUANTITY", payload: id })}
           aria-label="Increment item quantity"
         >
           <ChevronUpIcon width="24" />
@@ -104,9 +102,7 @@ function CheckoutItem({ id, src, item, width, height, price, quantity }) {
 
         <ChevronDownIconBtn
           type="button"
-          onClick={() =>
-            dispatch({ type: ACTIONS.DECREMENT_QUANTITY, payload: id })
-          }
+          onClick={() => dispatch({ type: "DECREMENT_QUANTITY", payload: id })}
           aria-label="Decrement item quantity"
         >
           <ChevronDownIcon width="24" />
