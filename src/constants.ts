@@ -4,4 +4,5 @@ export const BREAK_POINTS = {
   md: "56.5rem",
 };
 
-export const CART_ITEMS_KEY = "cartItems";
+// localStorage keys
+export const CART_ITEMS_KEY = "CART_ITEMS";

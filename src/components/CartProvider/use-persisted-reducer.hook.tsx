@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import { useImmerReducer } from "use-immer";
+import { ImmerReducer, useImmerReducer } from "use-immer";
 
-function usePersistedReducer(reducer, initialValue, key) {
+function usePersistedReducer<S, A extends { type: string; payload: unknown }>(
+  reducer: ImmerReducer<S, A>,
+  initialValue: S,
+  key: string
+) {
   const [store, dispatch] = useImmerReducer(reducer, initialValue);
   const [update, setUpdate] = useState(false);
 
@@ -16,7 +20,7 @@ function usePersistedReducer(reducer, initialValue, key) {
       dispatch({
         type: key,
         payload: JSON.parse(serializedValue),
-      });
+      } as A);
     }
   }, [key, dispatch]);
 
@@ -31,7 +35,7 @@ function usePersistedReducer(reducer, initialValue, key) {
     window.localStorage?.setItem(key, JSON.stringify(store));
   }, [key, store, update]);
 
-  return [store, dispatch];
+  return [store, dispatch] as const;
 }
 
 export default usePersistedReducer;
