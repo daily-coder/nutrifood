@@ -24,11 +24,7 @@ const NavList = styled.ul`
   }
 `;
 
-interface NavbarProps {
-  closeMenu(): void;
-}
-
-function Navbar({ closeMenu }: NavbarProps) {
+function Navbar({ closeMenu }: { closeMenu(): void }) {
   const navItems = NAV_LINKS.map((navLink) => (
     <NavItem key={navLink.label} {...navLink} onClick={closeMenu} />
   ));

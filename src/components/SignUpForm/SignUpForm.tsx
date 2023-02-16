@@ -55,11 +55,7 @@ const CloseFormIcon = styled(CloseIcon)`
   width: calc(15rem / 16);
 `;
 
-interface SignUpFormProps {
-  onClick(): void;
-}
-
-function SignUpForm({ onClick }: SignUpFormProps) {
+function SignUpForm({ onClick }: { onClick(): void }) {
   return (
     <Wrapper action="#">
       <FormControlWrapper>
