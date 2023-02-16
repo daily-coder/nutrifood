@@ -23,11 +23,7 @@ const Line2 = styled.div<{ isMenuOpen: boolean }>`
   transition: transform var(--transition-duration) ease-out;
 `;
 
-interface HamburgerIconProps {
-  isMenuOpen: boolean;
-}
-
-function HamburgerIcon({ isMenuOpen }: HamburgerIconProps) {
+function HamburgerIcon({ isMenuOpen }: { isMenuOpen: boolean }) {
   return (
     <div>
       <Line1 isMenuOpen={isMenuOpen}></Line1>
