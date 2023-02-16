@@ -21,7 +21,7 @@ function useScrollPosition(throttleBy = 250) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [throttleBy]);
 
-  return [position.x, position.y];
+  return [position.x, position.y] as const;
 }
 
 export default useScrollPosition;
