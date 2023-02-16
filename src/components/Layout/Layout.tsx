@@ -1,22 +1,20 @@
-import propTypes from "prop-types";
+import { ReactNode } from "react";
 
 import Footer from "../Footer";
 import Header from "../Header";
 
-function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
-
       {children}
-
       <Footer />
     </>
   );
 }
-
-Layout.propTypes = {
-  children: propTypes.node.isRequired,
-};
 
 export default Layout;
