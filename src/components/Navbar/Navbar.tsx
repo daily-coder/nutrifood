@@ -1,4 +1,3 @@
-import propTypes from "prop-types";
 import styled from "styled-components";
 
 import { BREAK_POINTS } from "../../constants";
@@ -25,7 +24,11 @@ const NavList = styled.ul`
   }
 `;
 
-function Navbar({ closeMenu }) {
+interface NavbarProps {
+  closeMenu(): void;
+}
+
+function Navbar({ closeMenu }: NavbarProps) {
   const navItems = NAV_LINKS.map((navLink) => (
     <NavItem key={navLink.label} {...navLink} onClick={closeMenu} />
   ));
@@ -36,9 +39,5 @@ function Navbar({ closeMenu }) {
     </Wrapper>
   );
 }
-
-Navbar.propTypes = {
-  closeMenu: propTypes.func.isRequired,
-};
 
 export default Navbar;
