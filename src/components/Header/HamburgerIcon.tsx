@@ -1,7 +1,6 @@
-import propTypes from "prop-types";
 import styled from "styled-components";
 
-const Line1 = styled.div`
+const Line1 = styled.div<{ isMenuOpen: boolean }>`
   width: 24px;
   height: 4px;
   border-radius: 4px;
@@ -12,7 +11,7 @@ const Line1 = styled.div`
   transition: transform var(--transition-duration) ease-out;
 `;
 
-const Line2 = styled.div`
+const Line2 = styled.div<{ isMenuOpen: boolean }>`
   width: 24px;
   height: 4px;
   border-radius: 4px;
@@ -24,7 +23,11 @@ const Line2 = styled.div`
   transition: transform var(--transition-duration) ease-out;
 `;
 
-function HamburgerIcon({ isMenuOpen }) {
+interface HamburgerIconProps {
+  isMenuOpen: boolean;
+}
+
+function HamburgerIcon({ isMenuOpen }: HamburgerIconProps) {
   return (
     <div>
       <Line1 isMenuOpen={isMenuOpen}></Line1>
@@ -32,9 +35,5 @@ function HamburgerIcon({ isMenuOpen }) {
     </div>
   );
 }
-
-HamburgerIcon.propTypes = {
-  isMenuOpen: propTypes.bool.isRequired,
-};
 
 export default HamburgerIcon;

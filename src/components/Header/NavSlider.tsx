@@ -1,11 +1,10 @@
-import propTypes from "prop-types";
 import styled from "styled-components";
 
 import PersonCircleIcon from "../../../public/svg/person-circle.svg";
 import { BREAK_POINTS } from "../../constants";
 import Navbar from "../Navbar";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isMenuOpen: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -64,7 +63,13 @@ const SignUpIcon = styled(PersonCircleIcon)`
   width: calc(24rem / 16);
 `;
 
-function NavSlider({ isMenuOpen, closeMenu, onClick }) {
+interface NavSliderProps {
+  isMenuOpen: boolean;
+  closeMenu(): void;
+  onClick(): void;
+}
+
+function NavSlider({ isMenuOpen, closeMenu, onClick }: NavSliderProps) {
   return (
     <Wrapper isMenuOpen={isMenuOpen}>
       <Navbar closeMenu={closeMenu} />
@@ -76,11 +81,5 @@ function NavSlider({ isMenuOpen, closeMenu, onClick }) {
     </Wrapper>
   );
 }
-
-NavSlider.propTypes = {
-  isMenuOpen: propTypes.bool.isRequired,
-  closeMenu: propTypes.func.isRequired,
-  onClick: propTypes.func.isRequired,
-};
 
 export default NavSlider;
