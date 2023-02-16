@@ -1,4 +1,3 @@
-import propTypes from "prop-types";
 import { createContext, Dispatch, ReactNode, useContext } from "react";
 
 import { CART_ITEMS_KEY } from "../../constants";
@@ -102,9 +101,5 @@ function CartProvider({ children }: { children: ReactNode }) {
     </CartItemsContext.Provider>
   );
 }
-
-CartProvider.propTypes = {
-  children: propTypes.node.isRequired,
-};
 
 export default CartProvider;
