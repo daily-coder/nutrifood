@@ -1,4 +1,3 @@
-import propTypes from "prop-types";
 import styled from "styled-components";
 
 import CloseIcon from "../../../public/svg/close-btn.svg";
@@ -56,7 +55,11 @@ const CloseFormIcon = styled(CloseIcon)`
   width: calc(15rem / 16);
 `;
 
-function SignUpForm({ onClick }) {
+interface SignUpFormProps {
+  onClick(): void;
+}
+
+function SignUpForm({ onClick }: SignUpFormProps) {
   return (
     <Wrapper action="#">
       <FormControlWrapper>
@@ -88,9 +91,5 @@ function SignUpForm({ onClick }) {
     </Wrapper>
   );
 }
-
-SignUpForm.propTypes = {
-  onClick: propTypes.func.isRequired,
-};
 
 export default SignUpForm;
