@@ -1,5 +1,4 @@
 import Link from "next/link";
-import propTypes from "prop-types";
 import styled from "styled-components";
 
 const Wrapper = styled.li`
@@ -11,17 +10,17 @@ const FooterLink = styled(Link)`
   text-transform: capitalize;
 `;
 
-function FooterItem({ href, label }) {
+interface FooterItemProps {
+  href: string;
+  label: string;
+}
+
+function FooterItem({ href, label }: FooterItemProps) {
   return (
     <Wrapper>
       <FooterLink href={href}>{label}</FooterLink>
     </Wrapper>
   );
 }
-
-FooterItem.propTypes = {
-  href: propTypes.string.isRequired,
-  label: propTypes.string.isRequired,
-};
 
 export default FooterItem;
