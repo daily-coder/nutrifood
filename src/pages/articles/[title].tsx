@@ -1,3 +1,4 @@
+import { GetStaticProps, GetStaticPaths } from "next";
 import styled from "styled-components";
 
 import server from "../../../config";
@@ -25,7 +26,14 @@ const Article = styled.article`
   letter-spacing: 1px;
 `;
 
-function ArticleItem({ title, about, nutrition }) {
+interface Article {
+  id: string;
+  title: string;
+  about: string;
+  nutrition: string;
+}
+
+function ArticleItem({ title, about, nutrition }: Omit<Article, "id">) {
   return (
     <>
       <Meta title={title} description={`information about ${title}`} />
@@ -44,7 +52,10 @@ function ArticleItem({ title, about, nutrition }) {
 
 export default ArticleItem;
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async function (context) {
+  if (!context.params) {
+    throw new Error("context.params is undefined");
+  }
   const response = await fetch(
     `${server}/api/articles/${context.params.title}`
   );
@@ -55,11 +66,11 @@ export async function getStaticProps(context) {
       ...article,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async function () {
   const response = await fetch(`${server}/api/articles`);
-  const articles = await response.json();
+  const articles: Article[] = await response.json();
   const paths = articles.map((article) => ({
     params: { title: article.title },
   }));
@@ -68,4 +79,4 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
