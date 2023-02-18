@@ -1,3 +1,19 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+export {};
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      addToBag(): void;
+      removeFromBag(): void;
+      incrementQuantity(): void;
+      decrementQuantity(): void;
+      assertItemPrice(price: number): void;
+      assertPayment(price: number): void;
+    }
+  }
+}
+
 Cypress.Commands.add("addToBag", () => {
   cy.findAllByRole("button", { name: /add to bag/i })
     .first()
