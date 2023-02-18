@@ -54,3 +54,5 @@ describe("payment", () => {
     });
   });
 });
+
+export {};
