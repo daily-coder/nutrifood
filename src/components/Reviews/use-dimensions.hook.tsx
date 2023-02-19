@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useCallback, useEffect, useState } from "react";
 
 import throttle from "../../utils/throttle";
 
@@ -8,7 +8,7 @@ function useDimensions(ref: RefObject<HTMLElement>) {
     height: 0,
   });
 
-  useEffect(() => {
+  const updateDimensions = useCallback(() => {
     if (!ref.current) {
       throw new Error("'ref' is null");
     }
@@ -19,20 +19,11 @@ function useDimensions(ref: RefObject<HTMLElement>) {
   }, [ref]);
 
   useEffect(() => {
-    const handleResize = throttle(() => {
-      if (!ref.current) {
-        throw new Error("'ref' is null");
-      }
-      setDimensions({
-        width: ref.current.offsetWidth,
-        height: ref.current.offsetHeight,
-      });
-    }, 250);
-
+    updateDimensions();
+    const handleResize = throttle(updateDimensions, 250);
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
-  }, [ref]);
+  }, [updateDimensions]);
 
   return dimensions;
 }
