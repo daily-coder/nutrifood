@@ -6,7 +6,7 @@ describe("bag", () => {
       .should("have.text", "1")
       .click();
     cy.removeFromBag();
-    // no notification badge is shown if there are no items
+    // notification badge is hidden if there are no items
     cy.findByLabelText(/checkout bag/i).should("have.text", "");
   });
 
