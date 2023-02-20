@@ -41,6 +41,7 @@ Live demo: [https://nutri-food.vercel.app/](https://nutri-food.vercel.app/)
 - [Sharp](https://sharp.pixelplumbing.com/) - Node.js module is to convert large images in common formats to smaller, web-friendly JPEG, PNG, WebP, GIF and AVIF images of varying dimensions.
 - [Styled-components](https://styled-components.com/) - Visual primitives for the component age.
 - [Svgr](https://react-svgr.com/) - A complete tool box to take advantage of using SVGs in your React applications.
+- [TypeScript](https://www.typescriptlang.org/) - A strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
 
 <br />
 
