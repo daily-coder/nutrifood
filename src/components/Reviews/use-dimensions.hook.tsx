@@ -1,4 +1,5 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
+import invariant from "tiny-invariant";
 
 import throttle from "../../utils/throttle";
 
@@ -9,9 +10,7 @@ function useDimensions(ref: RefObject<HTMLElement>) {
   });
 
   const updateDimensions = useCallback(() => {
-    if (!ref.current) {
-      throw new Error("'ref' is null");
-    }
+    invariant(ref.current, "'ref' is null");
     setDimensions({
       width: ref.current.offsetWidth,
       height: ref.current.offsetHeight,

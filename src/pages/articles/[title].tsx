@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import styled from "styled-components";
+import invariant from "tiny-invariant";
 
 import server from "../../../config";
 import Meta from "../../components/Meta";
@@ -53,9 +54,7 @@ function ArticleItem({ title, about, nutrition }: Omit<Article, "id">) {
 export default ArticleItem;
 
 export const getStaticProps: GetStaticProps = async function (context) {
-  if (!context.params) {
-    throw new Error("context.params is undefined");
-  }
+  invariant(context.params, "context.params is undefined");
   const response = await fetch(
     `${server}/api/articles/${context.params.title}`
   );
