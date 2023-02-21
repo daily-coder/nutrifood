@@ -22,19 +22,13 @@ function withImageDimensions(items: Item[]) {
 }
 
 export async function getStaticProps() {
-  const fruits = withImageDimensions(STORE_ITEMS_DATA.fruits);
-  const vegetables = withImageDimensions(STORE_ITEMS_DATA.vegetables);
-  const nuts = withImageDimensions(STORE_ITEMS_DATA.nuts);
-
-  const storeItemsData = {
-    fruits,
-    vegetables,
-    nuts,
-  };
-
   return {
     props: {
-      storeItemsData,
+      storeItemsData: {
+        fruits: withImageDimensions(STORE_ITEMS_DATA.fruits),
+        vegetables: withImageDimensions(STORE_ITEMS_DATA.vegetables),
+        nuts: withImageDimensions(STORE_ITEMS_DATA.nuts),
+      },
     },
   };
 }
