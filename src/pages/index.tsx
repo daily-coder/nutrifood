@@ -8,14 +8,10 @@ export default function Home() {
   return (
     <>
       <Meta />
-
       <main>
         <Hero />
-
         <HowItWorks />
-
         <Products />
-
         <Reviews />
       </main>
     </>
