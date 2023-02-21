@@ -1,4 +1,5 @@
 import { createContext, Dispatch, ReactNode, useContext } from "react";
+import invariant from "tiny-invariant";
 
 import { CART_ITEMS_KEY } from "../../constants";
 import { Item } from "../../types";
@@ -29,17 +30,13 @@ const CartDispatchContext = createContext<Dispatch<Action> | null>(null);
 
 export function useCartItems() {
   const context = useContext(CartItemsContext);
-  if (!context) {
-    throw new Error("useCartItems should be used within CartProvider");
-  }
+  invariant(context, "useCartItems should be used within CartProvider");
   return context;
 }
 
 export function useCartDispatch() {
   const context = useContext(CartDispatchContext);
-  if (!context) {
-    throw new Error("useCartDispatch should be used within CartProvider");
-  }
+  invariant(context, "useCartDispatch should be used within CartProvider");
   return context;
 }
 
@@ -60,18 +57,14 @@ function cartReducer(draft: CartItem[], { type, payload }: Action) {
 
     case "INCREMENT_QUANTITY": {
       const targetItem = draft.find((cartItem) => cartItem.id === payload);
-      if (!targetItem) {
-        throw new Error(`no cartItem with id ${payload}`);
-      }
+      invariant(targetItem, `no cartItem with id ${payload}`);
       targetItem.quantity = Math.max(targetItem.quantity + 1, 1);
       break;
     }
 
     case "DECREMENT_QUANTITY": {
       const targetItem = draft.find((cartItem) => cartItem.id === payload);
-      if (!targetItem) {
-        throw new Error(`no cartItem with id ${payload}`);
-      }
+      invariant(targetItem, `no cartItem with id ${payload}`);
       targetItem.quantity = Math.max(targetItem.quantity - 1, 1);
       break;
     }
