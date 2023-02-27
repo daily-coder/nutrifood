@@ -38,9 +38,7 @@ const Title = styled.h3`
 `;
 
 interface WorkItemProps {
-  // TODO: fix 'any' type
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  WorkIcon: any;
+  WorkIcon: React.FC<React.SVGProps<SVGSVGElement>>;
   iconSize: number;
   title: string;
   description: string;

@@ -1,7 +1,5 @@
 interface SocialIconLinkProps {
-  // TODO: fix 'any' type
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  Icon: any;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   href: string;
   ariaLabel: string;
 }
